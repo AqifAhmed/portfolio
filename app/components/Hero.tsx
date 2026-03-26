@@ -165,7 +165,7 @@ export default function Hero() {
             <img
               alt="Aqif Portrait"
               className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 transition-all duration-700"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOxMXV2zJsq4vPvBscpIFAlhklsZlESwWy2SRxZSdWferar9phApv-4Dj01QzzWCDZMskkA8zPCarnoNsF6S4PO4AS9pYC7cagyDlNWIbQbAyCjFWDRIBCKwXbDit2sY609dMZdpJXLp_oGDeTVxgjKtwBhlsSHkdubaLD2GdDKraQlK79tPlgdSu2SSaPI3IswWwbU_-5CJH-oCmegQj4xJhjuE9VgbbYbAlVizqWHqa8I_C3IuWnioTsWQRJML6gtPZ-_oGZtJU"
+              src="/perfil.png"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
 
