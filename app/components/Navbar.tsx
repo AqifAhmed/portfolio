@@ -33,17 +33,17 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <div className="grid grid-cols-3 items-center px-8 h-20 w-full max-w-screen-2xl mx-auto">
+        <div className="flex items-center justify-between px-6 sm:px-8 h-20 w-full max-w-screen-2xl mx-auto">
           {/* Logo */}
           <motion.div
-            className="text-2xl font-black tracking-tighter text-white uppercase font-headline justify-self-start"
+            className="text-2xl font-black tracking-tighter text-white uppercase font-headline"
             whileHover={{ scale: 1.02 }}
           >
             <span className="text-primary-dim">Aqif</span> Ahmed
           </motion.div>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex gap-10 font-headline tracking-tighter uppercase text-sm font-bold justify-self-center">
+          <div className="hidden md:flex gap-10 font-headline tracking-tighter uppercase text-sm font-bold absolute left-1/2 -translate-x-1/2">
             {links.map((link, i) => (
               <motion.a
                 key={link.label}
@@ -61,42 +61,54 @@ export default function Navbar() {
 
           {/* Mobile Menu Toggle (Terminal Icon) */}
           <motion.button
-            className="md:hidden p-2 text-primary-dim hover:bg-white/5 transition-all duration-200 active:scale-95 justify-self-end relative z-50"
+            className="md:hidden p-2 text-primary-dim hover:bg-white/5 rounded transition-all duration-200 active:scale-95 relative z-50"
             whileHover={{ scale: 1.1, rotate: 5 }}
             whileTap={{ scale: 0.9 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
-            <span className="material-symbols-outlined">
-              {menuOpen ? "close" : "terminal"}
+            <span className="material-symbols-outlined text-[28px]">
+              {menuOpen ? "close" : "menu"}
             </span>
           </motion.button>
+
+          {/* Desktop terminal icon (decorative) */}
+          <motion.div
+            className="hidden md:flex items-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+          >
+            <span className="material-symbols-outlined text-primary-dim/50 text-xl">terminal</span>
+          </motion.div>
         </div>
 
         {/* Mobile Nav Menu */}
         <AnimatePresence>
           {menuOpen && (
             <motion.div
-              className="md:hidden bg-[#0e0e0e]/95 backdrop-blur-3xl border-t border-white/5 overflow-hidden"
+              className="md:hidden fixed inset-x-0 top-20 bg-[#0e0e0e]/98 backdrop-blur-3xl border-t border-white/5 overflow-hidden z-40"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="flex flex-col px-8 py-6 gap-6 font-headline tracking-tighter uppercase text-sm font-bold">
+              <div className="flex flex-col px-6 sm:px-8 py-8 gap-0 font-headline tracking-tighter uppercase text-sm font-bold">
                 {links.map((link, i) => (
                   <motion.a
                     key={link.label}
                     href={link.href}
-                    className="text-white/60 hover:text-white transition-colors duration-300"
-                    initial={{ opacity: 0, x: -10 }}
+                    className="text-white/60 hover:text-white hover:pl-2 transition-all duration-300 py-5 border-b border-white/5 last:border-b-0 flex items-center gap-3"
+                    initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -10 }}
-                    transition={{ delay: 0.1 * i }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ delay: 0.05 * i + 0.1 }}
                     onClick={() => setMenuOpen(false)}
                   >
+                    <span className="w-1.5 h-1.5 bg-primary-dim/40 inline-block" />
                     {link.label}
                   </motion.a>
                 ))}

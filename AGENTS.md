@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is **Aqif Ahmed's personal portfolio website** — a single-page, dark-themed, futuristic/cyberpunk-styled developer portfolio. The site presents Aqif as a **Backend & AI Engineer** specializing in Python, FastAPI, PyTorch, and LLM operations. The design uses a "neural OS" / terminal aesthetic with scan lines, grain overlays, animated counters, and a custom cursor.
+This is **Aqif Ahmed's personal portfolio website** — a single-page, dark-themed, futuristic/cyberpunk-styled developer portfolio. The site presents Aqif as a **Backend & AI Engineer** specializing in Python, FastAPI, PyTorch, and LLM operations. The design uses a "neural OS" / terminal aesthetic with scan lines, grain overlays, animated counters, and a custom cursor (desktop only).
 
 ## Tech Stack
 
@@ -23,15 +23,18 @@ This is **Aqif Ahmed's personal portfolio website** — a single-page, dark-them
 ```
 portfolio/
 ├── app/
+│   ├── api/
+│   │   ├── github/route.ts   # API route — fetches live GitHub contributions
+│   │   └── leetcode/route.ts  # API route — fetches live LeetCode stats via GraphQL
 │   ├── components/          # All React components (client-side)
-│   │   ├── Contact.tsx      # Contact form section with animated inputs
-│   │   ├── CustomCursor.tsx  # Custom cursor with trailing ring effect
+│   │   ├── Contact.tsx      # Contact form section with Web3Forms integration
+│   │   ├── CustomCursor.tsx  # Custom cursor with trailing ring (desktop only, hidden on mobile)
 │   │   ├── Footer.tsx       # Footer with social links
 │   │   ├── Hero.tsx         # Hero section with portrait, parallax, letter animations
-│   │   ├── Navbar.tsx       # Sticky navbar with scroll-aware backdrop blur
+│   │   ├── Navbar.tsx       # Sticky navbar with responsive mobile menu
 │   │   ├── Projects.tsx     # Project showcase with parallax images
-│   │   └── StatsGrid.tsx    # Stats cards (GitHub, LeetCode, Core Stack)
-│   ├── globals.css          # Global styles, grain/scanline effects, cursor overrides
+│   │   └── StatsGrid.tsx    # Stats cards (live GitHub, live LeetCode, Core Stack)
+│   ├── globals.css          # Global styles, grain/scanline effects, cursor overrides (desktop only)
 │   ├── layout.tsx           # Root layout — metadata, fonts, dark mode class
 │   └── page.tsx             # Home page — loading screen + assembles all sections
 ├── public/
@@ -49,11 +52,12 @@ portfolio/
 - Uses the `app/` directory structure (App Router), **not** the `pages/` directory.
 - All components use `"use client"` directive — the entire app is client-rendered.
 - The root layout (`app/layout.tsx`) sets `<html lang="en" className="dark">` for Tailwind dark mode.
+- API routes exist under `app/api/` for live data fetching (GitHub, LeetCode).
 
 ### Single-Page Design
 - There is only **one route** (`/`) — `app/page.tsx`.
 - Sections are separated by components: `Hero → StatsGrid → Projects → Contact → Footer`.
-- Navigation uses anchor links (`#projects`, `#contact`).
+- Navigation uses anchor links (`#stats`, `#projects`, `#contact`).
 
 ### Loading Screen
 - The `LoadingScreen` component is defined **inside `page.tsx`** (not a separate file).
@@ -61,9 +65,14 @@ portfolio/
 - Uses `AnimatePresence` to fade out, then reveals the main content.
 
 ### Custom Cursor
-- The native cursor is hidden globally via `*, *::before, *::after { cursor: none !important; }` in `globals.css`.
+- The native cursor is hidden on desktop only via `@media (min-width: 768px)` in `globals.css`.
 - `CustomCursor.tsx` renders a Framer Motion dot + trailing ring that follows mouse position with spring physics.
 - The cursor changes size when hovering over interactive elements (links/buttons).
+- Both cursor elements use `hidden md:block` so they are invisible on mobile.
+
+### API Routes
+- `app/api/github/route.ts` — Fetches GitHub contribution data from `github-contributions-api.jogruber.de`. Returns total contributions/year and last 12 weeks of bar chart heights. Cached for 1 hour via `next.revalidate`.
+- `app/api/leetcode/route.ts` — Fetches LeetCode stats via GraphQL at `leetcode.com/graphql`. Returns total solved, easy/medium/hard breakdowns, total questions, and global ranking. Cached for 1 hour.
 
 ## Design System & Theming
 
@@ -98,22 +107,23 @@ Custom keyframes defined in Tailwind config: `fade-up`, `fade-in`, `slide-in-rig
 
 ### `page.tsx` — Home Page
 - **State**: `loading` (boolean) — toggles between LoadingScreen and main content.
-- **LoadingScreen**: Progress bar with 3 phases (`BOOTING`, `LOADING_NEURAL_OS`, `INIT_COMPLETE`). Auto-completes. 
+- **LoadingScreen**: Progress bar with 3 phases (`BOOTING`, `LOADING_NEURAL_OS`, `INIT_COMPLETE`). Auto-completes.
 - **Renders**: `CustomCursor`, scanline div, grain div, then `Navbar`, `Hero`, `StatsGrid`, `Projects`, `Contact`, `Footer`.
 
 ### `Hero.tsx`
 - Scroll-driven opacity fade and Y translation via `useScroll` / `useTransform`.
 - Mouse parallax on the portrait via `useMotionValue` / `useSpring`.
 - Animated letter-by-letter rendering of "AQIF AHMED" with hover bounce.
-- Two CTA buttons: `INITIALIZE_PROJECT` and `VIEW_DOCS`.
+- Two CTA buttons: `INITIALIZE_PROJECT` (scrolls to contact) and `VIEW_RESUME` (opens resume PDF in new tab).
 - Portrait image from `/perfil.png` with grayscale-to-color hover effect.
 
 ### `StatsGrid.tsx`
 - 3-column grid showing:
-  1. **GitHub Engineering** — animated counter to 1248 contributions/year + bar chart.
-  2. **Algo Proficiency** — animated counter to 452 LeetCode solved + progress bar.
+  1. **GitHub Engineering** — animated counter with **live data** from `/api/github` + bar chart.
+  2. **Algo Proficiency** — animated counter with **live data** from `/api/leetcode` + difficulty progress bars + global ranking.
   3. **Core Stack** — tech tags (Python 3.12, FastAPI, PyTorch, PostgreSQL, Docker, LLM_OPS).
 - Uses `useInView` for scroll-triggered animations (fires once).
+- Shows skeleton loading states while data loads, error states on failure.
 
 ### `Projects.tsx`
 - Displays 2 featured projects (`NEURAL_OS`, `ETHER_SHIELD`) in alternating layouts.
@@ -125,26 +135,28 @@ Custom keyframes defined in Tailwind config: `fade-up`, `fade-in`, `slide-in-rig
 - Contact form with animated floating labels (peer CSS technique).
 - Fields: `IDENTIFIER` (name), `COMM_CHANNEL` (email), `MANIFESTO / REQUEST` (message).
 - Submit button has 3 states: default → `ENCRYPTING...` (spinner) → `TRANSMITTED` (checkmark).
-- **No real backend** — form submission is simulated with `setTimeout`.
+- **Uses Web3Forms API** for real form submissions (`api.web3forms.com/submit`).
 - Grid background pattern and ambient glow effects.
 
 ### `Navbar.tsx`
 - Fixed position, full width, z-50.
 - Scroll-aware: transparent when at top, glassmorphic (`backdrop-blur-xl`) when scrolled past 40px.
-- Logo: `AQIF.AI` (red "AQIF" + white ".AI").
-- Desktop nav links: `ABOUT`, `PROJECTS`, `CONTACT`.
-- Terminal icon button on the right (decorative, no action).
-- Mobile menu state exists (`menuOpen`) but **mobile menu rendering is not yet implemented**.
+- Logo: `Aqif Ahmed` (red "Aqif" + white " Ahmed").
+- **Desktop**: Centered nav links (`ABOUT`, `PROJECTS`, `CONTACT`) + decorative terminal icon on right.
+- **Mobile**: Hamburger menu icon that toggles a full-width dropdown menu with animated link entries, red dot accents, and divider lines between items.
+- Uses flexbox layout with `justify-between` for proper mobile alignment.
 
 ### `Footer.tsx`
 - Simple footer with name, copyright, and social links (GITHUB, LINKEDIN, X).
-- Links are placeholder (`href="#"`) — not connected to actual profiles.
+- Links point to actual social profiles.
+- Copyright year is hardcoded to 2024.
 
 ### `CustomCursor.tsx`
 - Main dot: 8px white circle (40px when hovering interactive elements).
 - Trailing ring: 32px bordered circle with `primary-dim` color (60px on hover).
 - Both use spring physics for smooth following.
 - `mix-blend-mode: difference` on the main dot.
+- **Hidden on mobile** via `hidden md:block` classes.
 
 ## Scripts
 
@@ -160,17 +172,16 @@ npm run start  # Start production server
 2. **Framer Motion is used extensively** — every section uses scroll-triggered, staggered, and spring animations.
 3. **The cubic-bezier easing `[0.22, 1, 0.36, 1]`** is used consistently across all animation transitions.
 4. **Uppercase/monospace terminal aesthetic** — labels are styled as system commands (e.g., `COMMIT_FLOW: STEADY_STATE`, `PROTOCOL: START_TRANSMISSION`).
-5. **No API routes, no database** — this is a purely static portfolio site.
-6. **No testing setup** — no test framework or tests exist.
-7. **No ESLint config file** — uses `eslint-config-next` from devDependencies.
-8. **Images**: Portrait is local (`/public/perfil.png`), project images are external Google Cloud URLs.
+5. **API routes exist** for GitHub and LeetCode live stats — cached for 1 hour.
+6. **Contact form uses Web3Forms** for real email delivery.
+7. **No testing setup** — no test framework or tests exist.
+8. **No ESLint config file** — uses `eslint-config-next` from devDependencies.
+9. **Images**: Portrait is local (`/public/perfil.png`), project images are external Google Cloud URLs.
+10. **Custom cursor is desktop-only** — hidden via `hidden md:block` and CSS `cursor: none` is scoped to `@media (min-width: 768px)`.
 
 ## Known Gaps / TODOs
 
-- Mobile hamburger menu is state-tracked but **not rendered** (Navbar has `menuOpen` state but no mobile menu JSX).
-- Footer social links (`GITHUB`, `LINKEDIN`, `X`) are **placeholder `#` hrefs**.
-- Contact form has **no real submission logic** (simulated with setTimeout).
-- CTA buttons in Hero (`INITIALIZE_PROJECT`, `VIEW_DOCS`) link to **nothing**.
-- The `ABOUT` nav link points to `#` with **no About section** on the page.
-- Copyright year is hardcoded to **2024**.
-- `node_modules` may or may not be installed — run `npm install` if missing.
+- Footer copyright year is hardcoded to **2024**.
+- **No SEO beyond basics** — only `<title>` and `<meta description>` via Next.js metadata.
+- **Font CDN duplication** — fonts are loaded in both `globals.css` (`@import`) and `layout.tsx` (`<link>`). Ideally remove one.
+- Project `VIEW_RESOURCES` links are **placeholder `#` hrefs**.
