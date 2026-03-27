@@ -39,7 +39,7 @@ export default function Navbar() {
             className="text-2xl font-black tracking-tighter text-white uppercase font-headline"
             whileHover={{ scale: 1.02 }}
           >
-            <span className="text-primary-dim">AQIF</span>.AI
+            <span className="text-primary-dim">Aqif</span> Ahmed
           </motion.div>
 
           {/* Desktop Nav */}

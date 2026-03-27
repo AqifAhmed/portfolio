@@ -43,7 +43,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
         animate={{ opacity: [0.5, 1, 0.5] }}
         transition={{ duration: 1.5, repeat: Infinity }}
       >
-        <span className="text-primary-dim">AQIF</span>.AI
+        <span className="text-primary-dim">Aqif</span> Ahmed
       </motion.div>
 
       <div className="w-64 space-y-4">
