@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Aqif Ahmed | Backend & AI Engineer",
-  description: "Building resilient high-performance backends and AI-driven neural systems.",
+  title: "Aqif Ahmed | Backend Engineer",
+  description: "Building resilient high-performance backend systems.",
 };
 
 export default function RootLayout({
