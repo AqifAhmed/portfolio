@@ -23,7 +23,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-background text-on-background font-body cursor-none">
+      <body className="bg-background text-on-background font-body md:cursor-none">
         {children}
       </body>
     </html>

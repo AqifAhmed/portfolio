@@ -33,7 +33,7 @@ export default function CustomCursor() {
     <>
       {/* Main dot */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference"
+        className="hidden md:block fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference"
         style={{ x: springX, y: springY, translateX: "-50%", translateY: "-50%" }}
       >
         <motion.div
@@ -49,7 +49,7 @@ export default function CustomCursor() {
 
       {/* Trailing ring */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9998]"
+        className="hidden md:block fixed top-0 left-0 pointer-events-none z-[9998]"
         style={{ x: trailX, y: trailY, translateX: "-50%", translateY: "-50%" }}
       >
         <motion.div

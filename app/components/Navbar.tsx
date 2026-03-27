@@ -59,18 +59,51 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Terminal Button */}
+          {/* Mobile Menu Toggle (Terminal Icon) */}
           <motion.button
-            className="p-2 text-primary-dim hover:bg-white/5 transition-all duration-200 active:scale-95 justify-self-end"
+            className="md:hidden p-2 text-primary-dim hover:bg-white/5 transition-all duration-200 active:scale-95 justify-self-end relative z-50"
             whileHover={{ scale: 1.1, rotate: 5 }}
             whileTap={{ scale: 0.9 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
+            onClick={() => setMenuOpen(!menuOpen)}
           >
-            <span className="material-symbols-outlined">terminal</span>
+            <span className="material-symbols-outlined">
+              {menuOpen ? "close" : "terminal"}
+            </span>
           </motion.button>
         </div>
+
+        {/* Mobile Nav Menu */}
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              className="md:hidden bg-[#0e0e0e]/95 backdrop-blur-3xl border-t border-white/5 overflow-hidden"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="flex flex-col px-8 py-6 gap-6 font-headline tracking-tighter uppercase text-sm font-bold">
+                {links.map((link, i) => (
+                  <motion.a
+                    key={link.label}
+                    href={link.href}
+                    className="text-white/60 hover:text-white transition-colors duration-300"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -10 }}
+                    transition={{ delay: 0.1 * i }}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {link.label}
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.nav>
   );
