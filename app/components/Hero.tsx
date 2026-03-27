@@ -124,8 +124,8 @@ export default function Hero() {
           <motion.div variants={itemVariants} className="max-w-xl">
             <p className="text-on-surface-variant text-lg md:text-xl leading-relaxed font-light mb-12">
               Building resilient{" "}
-              <span className="text-white font-medium">high-performance backends</span> and{" "}
-              <span className="text-white font-medium">AI-driven neural systems</span> with
+              <span className="text-white font-medium">high-performance backend</span>
+              <span className="text-white font-medium">systems</span> with
               Python and FastAPI. Engineered for precision, prioritized for security.
             </p>
 
@@ -156,7 +156,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.02, borderColor: "rgba(255,255,255,0.4)" }}
                 whileTap={{ scale: 0.97 }}
               >
-                VIEW_DOCS
+                VIEW_RESUME
               </motion.a>
             </motion.div>
           </motion.div>
