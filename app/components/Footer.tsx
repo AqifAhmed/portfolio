@@ -3,7 +3,11 @@
 import { motion } from "framer-motion";
 
 export default function Footer() {
-  const links = ["GITHUB", "LINKEDIN", "X"];
+  const links = [
+    { name: "GITHUB", url: "https://github.com/aqifahmed" },
+    { name: "LINKEDIN", url: "https://linkedin.com/in/aqifahmed" },
+    { name: "X", url: "https://x.com/aqif__ahmed" }
+  ];
 
   return (
     <footer className="bg-[#000000] w-full py-12 border-t border-white/5">
@@ -23,13 +27,15 @@ export default function Footer() {
         <div className="flex gap-8">
           {links.map((link) => (
             <motion.a
-              key={link}
-              href="#"
+              key={link.name}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-mono text-[10px] tracking-widest uppercase font-bold text-white/40"
               whileHover={{ color: "#ff8e7d", x: 2 }}
               transition={{ duration: 0.2 }}
             >
-              {link}
+              {link.name}
             </motion.a>
           ))}
         </div>

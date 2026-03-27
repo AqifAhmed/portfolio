@@ -10,13 +10,31 @@ export default function Contact() {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (sending || sent) return;
     setSending(true);
-    setTimeout(() => {
+
+    const formData = new FormData(e.currentTarget);
+    // Web3Forms API Key
+    formData.append("access_key", "e5a40bd9-b414-4bdd-84fe-a571a0a1ee4d");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        setSent(true);
+      } else {
+        console.error("Transmission failed");
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+    } finally {
       setSending(false);
-      setSent(true);
-    }, 2000);
+    }
   };
 
   const fields = [
@@ -82,8 +100,10 @@ export default function Contact() {
                 <motion.input
                   className="peer w-full bg-transparent border-0 border-b border-outline py-4 focus:ring-0 focus:outline-none focus:border-primary-dim transition-all text-xl font-headline uppercase tracking-widest text-white placeholder-transparent"
                   id={field.id}
+                  name={field.id}
                   placeholder=" "
                   type={field.type}
+                  required
                   onFocus={() => setFocused(field.id)}
                   onBlur={() => setFocused(null)}
                 />
@@ -108,8 +128,10 @@ export default function Contact() {
             <textarea
               className="peer w-full bg-transparent border-0 border-b border-outline py-4 focus:ring-0 focus:outline-none focus:border-primary-dim transition-all text-xl font-headline uppercase tracking-widest resize-none text-white placeholder-transparent"
               id="message"
+              name="message"
               placeholder=" "
               rows={4}
+              required
               onFocus={() => setFocused("message")}
               onBlur={() => setFocused(null)}
             />

@@ -128,7 +128,7 @@ export default function StatsGrid() {
       : 0;
 
   return (
-    <section className="py-32 px-8 max-w-screen-2xl mx-auto" ref={ref}>
+    <section className="py-32 px-8 max-w-screen-2xl mx-auto" ref={ref} id="stats">
       <motion.div
         className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5"
         variants={containerVariants}
