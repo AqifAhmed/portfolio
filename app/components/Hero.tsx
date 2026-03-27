@@ -135,6 +135,9 @@ export default function Hero() {
                 className="bg-primary-dim text-on-primary-fixed font-headline font-bold uppercase tracking-widest px-10 py-5 kinetic-glow transition-all duration-300 relative overflow-hidden group"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}
+                onClick={() => {
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                }}
               >
                 <span className="relative z-10">INITIALIZE_PROJECT</span>
                 <motion.span
@@ -145,13 +148,16 @@ export default function Hero() {
                 />
               </motion.button>
 
-              <motion.button
-                className="border border-white/15 text-white font-headline font-bold uppercase tracking-widest px-10 py-5 hover:bg-white/5 transition-all relative overflow-hidden group"
+              <motion.a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-white/15 text-white font-headline font-bold uppercase tracking-widest px-10 py-5 hover:bg-white/5 transition-all relative overflow-hidden group text-center inline-block"
                 whileHover={{ scale: 1.02, borderColor: "rgba(255,255,255,0.4)" }}
                 whileTap={{ scale: 0.97 }}
               >
                 VIEW_DOCS
-              </motion.button>
+              </motion.a>
             </motion.div>
           </motion.div>
         </motion.div>
