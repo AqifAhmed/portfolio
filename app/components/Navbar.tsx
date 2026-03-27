@@ -29,21 +29,21 @@ export default function Navbar() {
       <div
         className={`transition-all duration-500 ${
           scrolled
-            ? "bg-[#0e0e0e]/90 backdrop-blur-xl border-b border-white/5"
+            ? "bg-[#0e0e0e]/90 backdrop-blur-xl"
             : "bg-transparent"
         }`}
       >
-        <div className="flex justify-between items-center px-8 h-20 w-full max-w-screen-2xl mx-auto">
+        <div className="grid grid-cols-3 items-center px-8 h-20 w-full max-w-screen-2xl mx-auto">
           {/* Logo */}
           <motion.div
-            className="text-2xl font-black tracking-tighter text-white uppercase font-headline"
+            className="text-2xl font-black tracking-tighter text-white uppercase font-headline justify-self-start"
             whileHover={{ scale: 1.02 }}
           >
             <span className="text-primary-dim">Aqif</span> Ahmed
           </motion.div>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex gap-10 font-headline tracking-tighter uppercase text-sm font-bold">
+          <div className="hidden md:flex gap-10 font-headline tracking-tighter uppercase text-sm font-bold justify-self-center">
             {links.map((link, i) => (
               <motion.a
                 key={link.label}
@@ -61,7 +61,7 @@ export default function Navbar() {
 
           {/* Terminal Button */}
           <motion.button
-            className="p-2 text-primary-dim hover:bg-white/5 transition-all duration-200 active:scale-95"
+            className="p-2 text-primary-dim hover:bg-white/5 transition-all duration-200 active:scale-95 justify-self-end"
             whileHover={{ scale: 1.1, rotate: 5 }}
             whileTap={{ scale: 0.9 }}
             initial={{ opacity: 0 }}
