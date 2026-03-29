@@ -388,12 +388,11 @@ export default function StatsGrid() {
             </div>
             <div className="flex flex-wrap gap-2">
               {[
-                "PYTHON_3.12",
+                "PYTHON",
                 "FASTAPI",
                 "PYTORCH",
                 "POSTGRESQL",
                 "DOCKER",
-                "LLM_OPS",
               ].map((tech, i) => (
                 <motion.span
                   key={tech}
