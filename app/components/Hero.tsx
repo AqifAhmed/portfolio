@@ -124,30 +124,13 @@ export default function Hero() {
           <motion.div variants={itemVariants} className="max-w-xl">
             <p className="text-on-surface-variant text-lg md:text-xl leading-relaxed font-light mb-12">
               Building resilient{" "}
-              <span className="text-white font-medium">high-performance backend</span>
-              <span className="text-white font-medium">systems</span> with
-              Python and FastAPI. Engineered for precision, prioritized for security.
+              <span className="text-white font-medium">High-Performance Backend</span>
+              <span className="text-white font-medium"> Systems</span> with
+              Python and FastAPI. Engineered for precision while prioritizing security.
             </p>
 
             {/* CTA Buttons */}
             <motion.div variants={itemVariants} className="flex flex-wrap gap-6">
-              <motion.button
-                className="bg-primary-dim text-on-primary-fixed font-headline font-bold uppercase tracking-widest px-10 py-5 kinetic-glow transition-all duration-300 relative overflow-hidden group"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={() => {
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                <span className="relative z-10">INITIALIZE_PROJECT</span>
-                <motion.span
-                  className="absolute inset-0 bg-white/20"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "100%" }}
-                  transition={{ duration: 0.5 }}
-                />
-              </motion.button>
-
               <motion.a
                 href="/resume.pdf"
                 target="_blank"
