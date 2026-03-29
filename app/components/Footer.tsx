@@ -21,7 +21,7 @@ export default function Footer() {
         </motion.div>
 
         <p className="font-mono text-[10px] tracking-widest uppercase text-white/40">
-          © 2024 AQIF AHMED. ENGINEERED FOR PRECISION.
+          © 2026 AQIF AHMED
         </p>
 
         <div className="flex gap-8">

@@ -39,8 +39,8 @@ export default function CustomCursor() {
         <motion.div
           className="rounded-full bg-white"
           animate={{
-            width: isPointer ? 40 : 8,
-            height: isPointer ? 40 : 8,
+            width: isPointer ? 40 : 10,
+            height: isPointer ? 40 : 10,
             opacity: isPointer ? 0.6 : 1,
           }}
           transition={{ duration: 0.2 }}
