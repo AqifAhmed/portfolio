@@ -1,9 +1,3 @@
-Good catch — I rechecked your actual repo structure from the ZIP, and you’re right. Also removed the **Preview section** as requested.
-
-Here’s your **corrected, clean, final README** 👇
-
----
-
 # 🚀 Aqif Ahmed — Developer Portfolio
 
 <p align="center">
