@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
-// ── Types ──────────────────────────────────────────────────────
 interface GitHubData {
   total: number;
   barHeights: number[];
@@ -18,14 +17,7 @@ interface LeetCodeData {
   ranking: number;
 }
 
-// ── Animated counter ──────────────────────────────────────────
-function AnimatedCounter({
-  target,
-  suffix = "",
-}: {
-  target: number;
-  suffix?: string;
-}) {
+function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
   const [display, setDisplay] = useState(0);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
@@ -33,7 +25,7 @@ function AnimatedCounter({
   useEffect(() => {
     if (!inView || target === 0) return;
     let start = 0;
-    const duration = 1800;
+    const duration = 1600;
     const step = (timestamp: number) => {
       if (!start) start = timestamp;
       const progress = Math.min((timestamp - start) / duration, 1);
@@ -52,7 +44,6 @@ function AnimatedCounter({
   );
 }
 
-// ── Skeleton pulse for loading states ─────────────────────────
 function SkeletonPulse({ className = "" }: { className?: string }) {
   return (
     <motion.div
@@ -63,7 +54,6 @@ function SkeletonPulse({ className = "" }: { className?: string }) {
   );
 }
 
-// ── Framer variants ───────────────────────────────────────────
 const containerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15 } },
@@ -78,7 +68,6 @@ const cardVariants = {
   },
 };
 
-// ── Main component ────────────────────────────────────────────
 export default function StatsGrid() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
@@ -106,39 +95,34 @@ export default function StatsGrid() {
       .catch(() => setLcError(true));
   }, []);
 
-  // Compute LeetCode percentages
-  const lcSolvePercent =
-    leetcode && leetcode.totalQuestions > 0
-      ? Math.round((leetcode.totalSolved / leetcode.totalQuestions) * 100)
-      : 0;
-
   const lcEasyPercent =
     leetcode && leetcode.easy.total > 0
       ? Math.round((leetcode.easy.solved / leetcode.easy.total) * 100)
       : 0;
-
   const lcMediumPercent =
     leetcode && leetcode.medium.total > 0
       ? Math.round((leetcode.medium.solved / leetcode.medium.total) * 100)
       : 0;
-
   const lcHardPercent =
     leetcode && leetcode.hard.total > 0
       ? Math.round((leetcode.hard.solved / leetcode.hard.total) * 100)
       : 0;
 
   return (
-    <section className="py-32 px-8 max-w-screen-2xl mx-auto" ref={ref} id="stats">
+    <section className="py-16 md:py-32 px-4 md:px-8 max-w-screen-2xl mx-auto" ref={ref} id="stats">
       <motion.div
         className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5"
         variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
       >
-        {/* ─── GitHub Card ────────────────────────────────────── */}
-        <motion.div
+        {/* GitHub Card */}
+        <motion.a
+          href="https://github.com/aqifahmed"
+          target="_blank"
+          rel="noopener noreferrer"
           variants={cardVariants}
-          className="bg-surface p-10 flex flex-col justify-between group relative overflow-hidden"
+          className="bg-surface p-6 md:p-10 flex flex-col justify-between group relative overflow-hidden cursor-pointer"
         >
           <motion.div className="absolute inset-0 bg-primary-dim/0 group-hover:bg-primary-dim/3 transition-all duration-500" />
           <div className="relative z-10">
@@ -151,7 +135,7 @@ export default function StatsGrid() {
                 code_blocks
               </motion.span>
               <h3 className="font-headline font-bold tracking-widest uppercase text-xs text-on-surface-variant">
-                GITHUB_ENGINEERING
+                GITHUB_ACTIVITY
               </h3>
             </div>
 
@@ -160,15 +144,11 @@ export default function StatsGrid() {
                 <span className="text-6xl font-headline font-black tracking-tighter">
                   <AnimatedCounter target={github.total} />
                 </span>
-                <span className="text-on-surface-variant text-sm mb-2 font-mono">
-                  CONTRIB/YR
-                </span>
+                <span className="text-on-surface-variant text-sm mb-2 font-mono">CONTRIB/YR</span>
               </div>
             ) : ghError ? (
               <div className="flex items-end gap-2 mb-4">
-                <span className="text-2xl font-headline font-bold text-on-surface-variant">
-                  FETCH_ERROR
-                </span>
+                <span className="text-2xl font-headline font-bold text-on-surface-variant">FETCH_ERROR</span>
               </div>
             ) : (
               <div className="flex items-end gap-2 mb-4">
@@ -187,19 +167,9 @@ export default function StatsGrid() {
                       className="flex-1 bg-primary-dim/20"
                       style={{ height: `${h}%` }}
                       initial={{ height: 0 }}
-                      animate={
-                        inView
-                          ? { height: `${Math.max(h, 2)}%` }
-                          : { height: 0 }
-                      }
-                      transition={{
-                        delay: 0.3 + i * 0.06,
-                        duration: 0.6,
-                        ease: "easeOut",
-                      }}
-                      whileHover={{
-                        backgroundColor: "rgba(235,0,0,0.8)",
-                      }}
+                      animate={inView ? { height: `${Math.max(h, 2)}%` } : { height: 0 }}
+                      transition={{ delay: 0.3 + i * 0.06, duration: 0.6, ease: "easeOut" }}
+                      whileHover={{ backgroundColor: "rgba(235,0,0,0.8)" }}
                     />
                   ))
                 : Array.from({ length: 12 }).map((_, i) => (
@@ -219,12 +189,13 @@ export default function StatsGrid() {
                 : "LOADING..."}
             </p>
           </div>
-        </motion.div>
-
-        {/* ─── LeetCode Card ──────────────────────────────────── */}
-        <motion.div
+        </motion.a>
+        <motion.a
+          href="https://leetcode.com/u/aqifahmed"
+          target="_blank"
+          rel="noopener noreferrer"
           variants={cardVariants}
-          className="bg-surface p-10 flex flex-col justify-between border-x border-white/5 relative overflow-hidden group"
+          className="bg-surface p-6 md:p-10 flex flex-col justify-between border-x border-white/5 relative overflow-hidden group cursor-pointer"
         >
           <motion.div className="absolute inset-0 bg-primary-dim/0 group-hover:bg-primary-dim/3 transition-all duration-500" />
           <div className="relative z-10">
@@ -237,7 +208,7 @@ export default function StatsGrid() {
                 terminal
               </motion.span>
               <h3 className="font-headline font-bold tracking-widest uppercase text-xs text-on-surface-variant">
-                ALGO_PROFICIENCY
+                ALGO_PRACTICE
               </h3>
             </div>
 
@@ -246,15 +217,11 @@ export default function StatsGrid() {
                 <span className="text-6xl font-headline font-black tracking-tighter">
                   <AnimatedCounter target={leetcode.totalSolved} />
                 </span>
-                <span className="text-on-surface-variant text-sm mb-2 font-mono">
-                  SOLVED
-                </span>
+                <span className="text-on-surface-variant text-sm mb-2 font-mono">SOLVED</span>
               </div>
             ) : lcError ? (
               <div className="flex items-end gap-2 mb-4">
-                <span className="text-2xl font-headline font-bold text-on-surface-variant">
-                  FETCH_ERROR
-                </span>
+                <span className="text-2xl font-headline font-bold text-on-surface-variant">FETCH_ERROR</span>
               </div>
             ) : (
               <div className="flex items-end gap-2 mb-4">
@@ -266,92 +233,49 @@ export default function StatsGrid() {
 
           {leetcode ? (
             <div className="space-y-3 relative z-10">
-              {/* Easy */}
               <div>
                 <div className="flex justify-between text-xs font-mono mb-1">
                   <span className="text-green-400">EASY</span>
-                  <span className="text-primary-dim">
-                    {leetcode.easy.solved}/{leetcode.easy.total}
-                  </span>
+                  <span className="text-primary-dim">{leetcode.easy.solved}/{leetcode.easy.total}</span>
                 </div>
                 <div className="w-full h-1 bg-surface-container-highest overflow-hidden">
                   <motion.div
                     className="h-full bg-green-400"
                     initial={{ width: "0%" }}
-                    animate={
-                      inView
-                        ? { width: `${lcEasyPercent}%` }
-                        : { width: "0%" }
-                    }
-                    transition={{
-                      delay: 0.5,
-                      duration: 1.2,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
+                    animate={inView ? { width: `${lcEasyPercent}%` } : { width: "0%" }}
+                    transition={{ delay: 0.5, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                   />
                 </div>
               </div>
-              {/* Medium */}
               <div>
                 <div className="flex justify-between text-xs font-mono mb-1">
                   <span className="text-yellow-400">MEDIUM</span>
-                  <span className="text-primary-dim">
-                    {leetcode.medium.solved}/{leetcode.medium.total}
-                  </span>
+                  <span className="text-primary-dim">{leetcode.medium.solved}/{leetcode.medium.total}</span>
                 </div>
                 <div className="w-full h-1 bg-surface-container-highest overflow-hidden">
                   <motion.div
                     className="h-full bg-yellow-400"
                     initial={{ width: "0%" }}
-                    animate={
-                      inView
-                        ? { width: `${lcMediumPercent}%` }
-                        : { width: "0%" }
-                    }
-                    transition={{
-                      delay: 0.7,
-                      duration: 1.2,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
+                    animate={inView ? { width: `${lcMediumPercent}%` } : { width: "0%" }}
+                    transition={{ delay: 0.7, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                   />
                 </div>
               </div>
-              {/* Hard */}
               <div>
                 <div className="flex justify-between text-xs font-mono mb-1">
                   <span className="text-red-400">HARD</span>
-                  <span className="text-primary-dim">
-                    {leetcode.hard.solved}/{leetcode.hard.total}
-                  </span>
+                  <span className="text-primary-dim">{leetcode.hard.solved}/{leetcode.hard.total}</span>
                 </div>
                 <div className="w-full h-1 bg-surface-container-highest overflow-hidden">
                   <motion.div
                     className="h-full bg-red-400"
                     initial={{ width: "0%" }}
-                    animate={
-                      inView
-                        ? { width: `${lcHardPercent}%` }
-                        : { width: "0%" }
-                    }
-                    transition={{
-                      delay: 0.9,
-                      duration: 1.2,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
+                    animate={inView ? { width: `${lcHardPercent}%` } : { width: "0%" }}
+                    transition={{ delay: 0.9, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                   />
                 </div>
               </div>
 
-              <div className="flex justify-between text-xs font-mono pt-2">
-                <span>GLOBAL_RANKING</span>
-                <motion.span
-                  className="text-white"
-                  animate={{ opacity: [0.7, 1, 0.7] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  #{leetcode.ranking.toLocaleString()}
-                </motion.span>
-              </div>
             </div>
           ) : (
             <div className="space-y-3 relative z-10">
@@ -361,12 +285,12 @@ export default function StatsGrid() {
               <SkeletonPulse className="w-3/4 h-4 mt-2" />
             </div>
           )}
-        </motion.div>
+        </motion.a>
 
-        {/* ─── Core Stack Card ────────────────────────────────── */}
+        {/* Core Stack Card */}
         <motion.div
           variants={cardVariants}
-          className="bg-surface p-10 flex flex-col justify-between relative overflow-hidden group"
+          className="bg-surface p-6 md:p-10 flex flex-col justify-between relative overflow-hidden group"
         >
           <motion.div className="absolute inset-0 bg-primary-dim/0 group-hover:bg-primary-dim/3 transition-all duration-500" />
           <div className="relative z-10">
@@ -374,11 +298,7 @@ export default function StatsGrid() {
               <motion.span
                 className="material-symbols-outlined text-primary-dim"
                 animate={{ rotate: [0, 360] }}
-                transition={{
-                  duration: 10,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
+                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
               >
                 memory
               </motion.span>
@@ -387,24 +307,14 @@ export default function StatsGrid() {
               </h3>
             </div>
             <div className="flex flex-wrap gap-2">
-              {[
-                "PYTHON",
-                "FASTAPI",
-                "PYTORCH",
-                "POSTGRESQL",
-                "DOCKER",
-              ].map((tech, i) => (
+              {["PYTHON", "FASTAPI", "POSTGRESQL", "DOCKER", "GIT"].map((tech, i) => (
                 <motion.span
                   key={tech}
                   className="bg-surface-container-high px-3 py-1 text-[10px] font-mono tracking-widest cursor-default"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={inView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ delay: 0.4 + i * 0.08, duration: 0.4 }}
-                  whileHover={{
-                    backgroundColor: "rgba(235,0,0,0.15)",
-                    color: "#ff8e7d",
-                    scale: 1.05,
-                  }}
+                  transition={{ delay: 0.4 + i * 0.07, duration: 0.4 }}
+                  whileHover={{ backgroundColor: "rgba(235,0,0,0.15)", color: "#ff8e7d", scale: 1.05 }}
                 >
                   {tech}
                 </motion.span>
@@ -414,8 +324,7 @@ export default function StatsGrid() {
 
           <div className="mt-8 pt-8 border-t border-white/5 relative z-10">
             <p className="text-xs text-on-surface-variant font-body leading-relaxed">
-              Specialized in orchestrating asynchronous distributed systems with
-              integrated transformer models for real-time inference.
+              Backend-focused software engineer. Building APIs, search tools, and web apps. Open to internships and freelance opportunities.
             </p>
           </div>
         </motion.div>
