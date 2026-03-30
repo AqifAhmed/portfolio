@@ -1,11 +1,13 @@
-Perfect — I’ve plugged in your actual details and cleaned everything up into a **final, production-ready README** 👇
+Good catch — I rechecked your actual repo structure from the ZIP, and you’re right. Also removed the **Preview section** as requested.
+
+Here’s your **corrected, clean, final README** 👇
 
 ---
 
 # 🚀 Aqif Ahmed — Developer Portfolio
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?size=28&duration=3000&color=00C2FF&center=true&vCenter=true&width=600&lines=Full+Stack+Developer;Next.js+%7C+TypeScript+%7C+Tailwind;Building+Modern+Web+Apps;Always+Learning+🚀" />
+  <img src="https://readme-typing-svg.herokuapp.com?size=28&duration=3000&color=00C2FF&center=true&vCenter=true&width=600&lines=Backend+Developer;Building+Modern+Web+Apps;Always+Learning+🚀" />
 </p>
 
 ---
@@ -14,9 +16,9 @@ Perfect — I’ve plugged in your actual details and cleaned everything up into
 
 Hi 👋 I'm **Aqif Ahmed**
 
-* 💻 Passionate about **Web Development & Problem Solving**
-* 🚀 Building projects using **Next.js & TypeScript**
-* 📚 Constantly learning and improving
+* 💻 Passionate about **Backend Development & Problem Solving**
+* 🚀 Building projects using **Python & FASTAPI**
+* 📚 Constantly improving my skills
 * 🎯 Goal: Become a top-tier software engineer
 
 ---
@@ -41,7 +43,7 @@ Hi 👋 I'm **Aqif Ahmed**
 * 🎨 Tailwind CSS modern UI
 * 📱 Fully responsive
 * 📊 GitHub + LeetCode stats integration
-* 🖱️ Custom cursor experience
+* 🖱️ Custom cursor
 * 📄 Resume download
 * 📬 Contact section
 
@@ -50,15 +52,41 @@ Hi 👋 I'm **Aqif Ahmed**
 ## 📂 Project Structure
 
 ```bash
-portfolio/
+portfolio-fixed/
 ├── app/
 │   ├── components/
+│   │   ├── About.tsx
+│   │   ├── Contact.tsx
+│   │   ├── CustomCursor.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Hero.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── Projects.tsx
+│   │   └── StatsGrid.tsx
+│   │
 │   ├── api/
+│   │   ├── github/
+│   │   │   └── route.ts
+│   │   └── leetcode/
+│   │       └── route.ts
+│   │
+│   ├── globals.css
 │   ├── layout.tsx
 │   └── page.tsx
+│
 ├── public/
-├── styles/
-└── config files
+│   ├── perfil.png
+│   └── resume.pdf
+│
+├── package.json
+├── package-lock.json
+├── tsconfig.json
+├── tailwind.config.ts
+├── postcss.config.js
+├── next.config.js
+├── next-env.d.ts
+├── AGENTS.md
+└── CLAUDE.md
 ```
 
 ---
@@ -76,14 +104,6 @@ portfolio/
 
 <p align="center">
   <img src="https://leetcard.jacoblin.cool/AqifAhmed?theme=dark&font=baloo&ext=heatmap" />
-</p>
-
----
-
-## 📸 Preview
-
-<p align="center">
-  <img src="./public/perfil.png" width="400"/>
 </p>
 
 ---
@@ -137,20 +157,13 @@ Deploy easily on **Vercel**:
 
 ---
 
-## 👀 Visitor Count
-
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=AqifAhmed&color=blue" />
-</p>
-
----
-
 ## ⭐ Support
 
-If you like this project, give it a ⭐ on GitHub — it helps a lot!
+If you like this project, give it a ⭐ on GitHub!
 
 ---
 
 ## 📜 License
 
 This project is licensed under the **MIT License**.
+
