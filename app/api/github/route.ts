@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+export const revalidate = 3600;
+
 const GITHUB_USERNAME = "AqifAhmed";
 
 export async function GET() {

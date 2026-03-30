@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+export const revalidate = 3600;
+
 const LEETCODE_USERNAME = "AqifAhmed";
 
 const USER_QUERY = `

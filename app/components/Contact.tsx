@@ -14,9 +14,9 @@ export default function Contact() {
     e.preventDefault();
     if (sending || sent) return;
     setSending(true);
+    const form = e.currentTarget;
 
-    const formData = new FormData(e.currentTarget);
-    // Web3Forms API Key
+    const formData = new FormData(form);
     formData.append("access_key", "e5a40bd9-b414-4bdd-84fe-a571a0a1ee4d");
 
     try {
@@ -24,11 +24,9 @@ export default function Contact() {
         method: "POST",
         body: formData,
       });
-
       if (response.ok) {
         setSent(true);
-      } else {
-        console.error("Transmission failed");
+        form.reset();
       }
     } catch (error) {
       console.error("Network error:", error);
@@ -38,12 +36,12 @@ export default function Contact() {
   };
 
   const fields = [
-    { id: "name", label: "IDENTIFIER", type: "text", colSpan: 1 },
-    { id: "email", label: "COMM_CHANNEL", type: "email", colSpan: 1 },
+    { id: "name", label: "YOUR_NAME", type: "text" },
+    { id: "email", label: "YOUR_EMAIL", type: "email" },
   ];
 
   return (
-    <section className="py-40 px-8 bg-surface-container-low relative overflow-hidden" id="contact">
+    <section className="py-24 md:py-40 px-4 md:px-8 bg-surface-container-low relative overflow-hidden" id="contact">
       {/* Background grid */}
       <div
         className="absolute inset-0 opacity-5"
@@ -54,12 +52,7 @@ export default function Contact() {
         }}
       />
 
-      {/* Ambient glows */}
-      <motion.div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary-dim/5 rounded-full blur-[100px]"
-        animate={{ opacity: [0.5, 0.8, 0.5], scale: [1, 1.1, 1] }}
-        transition={{ duration: 6, repeat: Infinity }}
-      />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary-dim/5 rounded-full blur-[100px]" />
 
       <div className="max-w-4xl mx-auto text-center relative z-10" ref={ref}>
         {/* Label */}
@@ -69,20 +62,20 @@ export default function Contact() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          PROTOCOL: START_TRANSMISSION
+          GET IN TOUCH
         </motion.p>
 
         {/* Heading */}
-        <div className="overflow-hidden mb-20">
+        <div className="overflow-hidden mb-12 md:mb-20">
           <motion.h2
             className="font-headline text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none"
             initial={{ y: "100%" }}
             animate={inView ? { y: 0 } : {}}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
           >
-            INITIATE
+            LET&apos;S
             <br />
-            CONNECTION
+            CONNECT
           </motion.h2>
         </div>
 
@@ -139,7 +132,7 @@ export default function Contact() {
               className="absolute top-4 left-0 text-on-surface-variant pointer-events-none text-sm transition-all duration-300 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-primary-dim peer-[&:not(:placeholder-shown)]:-top-4 peer-[&:not(:placeholder-shown)]:text-xs font-mono tracking-widest"
               htmlFor="message"
             >
-              MANIFESTO / REQUEST
+              YOUR_MESSAGE
             </label>
             <motion.div
               className="absolute bottom-0 left-0 h-[1px] bg-primary-dim"
@@ -152,7 +145,7 @@ export default function Contact() {
           {/* Submit */}
           <div className="flex justify-center pt-8">
             <motion.button
-              className="group relative px-12 py-6 bg-primary-dim text-on-primary-fixed font-headline font-black uppercase tracking-[0.2em] kinetic-glow overflow-hidden"
+              className="group relative px-12 py-6 bg-primary-dim text-on-primary-fixed font-headline font-black uppercase tracking-[0.2em] overflow-hidden"
               type="submit"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.97 }}
@@ -161,22 +154,15 @@ export default function Contact() {
               <span className="relative z-10 flex items-center gap-3">
                 {sent ? (
                   <>
-                    <motion.span
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ type: "spring" }}
-                    >
-                      TRANSMITTED
+                    <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring" }}>
+                      MESSAGE_SENT
                     </motion.span>
                     <span className="material-symbols-outlined">check</span>
                   </>
                 ) : sending ? (
                   <>
-                    <motion.span
-                      animate={{ opacity: [1, 0.5, 1] }}
-                      transition={{ duration: 0.8, repeat: Infinity }}
-                    >
-                      ENCRYPTING...
+                    <motion.span animate={{ opacity: [1, 0.5, 1] }} transition={{ duration: 0.8, repeat: Infinity }}>
+                      SENDING...
                     </motion.span>
                     <motion.span
                       className="material-symbols-outlined"
@@ -188,7 +174,7 @@ export default function Contact() {
                   </>
                 ) : (
                   <>
-                    SEND_DATA
+                    SEND_MESSAGE
                     <span className="material-symbols-outlined">send</span>
                   </>
                 )}

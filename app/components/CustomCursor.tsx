@@ -18,15 +18,29 @@ export default function CustomCursor() {
     const move = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
-
-      const el = document.elementFromPoint(e.clientX, e.clientY);
-      if (el) {
-        const style = window.getComputedStyle(el).cursor;
-        setIsPointer(style === "pointer" || el.tagName === "A" || el.tagName === "BUTTON");
-      }
     };
+
+    const handleMouseOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target) return;
+
+      const isClickable =
+        window.getComputedStyle(target).cursor === "pointer" ||
+        target.tagName === "A" ||
+        target.tagName === "BUTTON" ||
+        target.closest("a") !== null ||
+        target.closest("button") !== null;
+        
+      setIsPointer(isClickable);
+    };
+
     window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
+    window.addEventListener("mouseover", handleMouseOver);
+    
+    return () => {
+      window.removeEventListener("mousemove", move);
+      window.removeEventListener("mouseover", handleMouseOver);
+    };
   }, [mouseX, mouseY]);
 
   return (

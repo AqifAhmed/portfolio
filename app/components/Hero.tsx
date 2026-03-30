@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const containerVariants = {
   hidden: {},
@@ -15,7 +15,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -26,33 +26,15 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
   const y = useTransform(scrollYProgress, [0, 1], [0, -60]);
-  const opacity = useTransform(scrollYProgress, [0, 0.4, 1], [1, 1, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1, 0]);
 
-  // Mouse parallax
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const smoothX = useSpring(mouseX, { stiffness: 60, damping: 20 });
-  const smoothY = useSpring(mouseY, { stiffness: 60, damping: 20 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      const { innerWidth, innerHeight } = window;
-      mouseX.set((clientX / innerWidth - 0.5) * 30);
-      mouseY.set((clientY / innerHeight - 0.5) * 30);
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
-
-  // Letter animation for "AQIF AHMED"
   const firstName = "AQIF";
   const lastName = "AHMED";
 
   return (
     <motion.section
       ref={ref}
-      className="min-h-screen flex flex-col justify-center px-8 pt-20 max-w-screen-2xl mx-auto relative overflow-hidden"
+      className="min-h-screen flex flex-col justify-center px-4 md:px-8 pt-20 max-w-screen-2xl mx-auto relative overflow-hidden"
       style={{ opacity }}
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
@@ -75,10 +57,10 @@ export default function Hero() {
               animate={{ width: 32 }}
               transition={{ delay: 0.5, duration: 0.5 }}
             />
-            SYSTEM_ARCHITECT // BACKEND &amp; AI
+            SOFTWARE ENGINEER // BACKEND & WEB
           </motion.p>
 
-          {/* Hero Name - Animated Letters */}
+          {/* Hero Name */}
           <h1 className="font-headline text-7xl md:text-[9rem] font-black leading-[0.85] tracking-tighter uppercase mb-8">
             <div className="overflow-hidden">
               <motion.div
@@ -123,14 +105,23 @@ export default function Hero() {
           {/* Description */}
           <motion.div variants={itemVariants} className="max-w-xl">
             <p className="text-on-surface-variant text-lg md:text-xl leading-relaxed font-light mb-12">
-              Building resilient{" "}
-              <span className="text-white font-medium">High-Performance Backend</span>
-              <span className="text-white font-medium"> Systems</span> with
-              Python and FastAPI. Engineered for precision while prioritizing security.
+              Building backend systems and web applications with{" "}
+              <span className="text-white font-medium">Python and FastAPI.</span>{" "}
+              Currently developing a{" "}
+              <span className="text-white font-medium">GitHub repository search engine</span>{" "}
+              — open to internships and freelance work.
             </p>
 
             {/* CTA Buttons */}
             <motion.div variants={itemVariants} className="flex flex-wrap gap-6">
+              <motion.a
+                href="#projects"
+                className="border border-primary-dim/40 text-primary-dim font-headline font-bold uppercase tracking-widest px-10 py-5 hover:bg-primary-dim/10 transition-all text-center inline-block"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                VIEW_PROJECTS
+              </motion.a>
               <motion.a
                 href="/resume.pdf"
                 target="_blank"
@@ -151,7 +142,6 @@ export default function Hero() {
           initial={{ opacity: 0, x: 60 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
-          style={{ x: smoothX, y: smoothY }}
         >
           <div className="aspect-[4/5] bg-surface-container-low relative group">
             <img
@@ -173,15 +163,6 @@ export default function Hero() {
               transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
             />
 
-            {/* Scan Line on hover */}
-            <div className="absolute inset-0 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <motion.div
-                className="absolute w-full h-[2px] bg-gradient-to-r from-transparent via-primary-dim/30 to-transparent"
-                animate={{ top: ["0%", "100%"] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-              />
-            </div>
-
             {/* Decorative number */}
             <div className="absolute -bottom-6 -right-6 font-headline text-primary-dim/20 text-9xl font-black select-none pointer-events-none">
               01
@@ -190,17 +171,8 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Background Glows */}
-      <motion.div
-        className="absolute top-1/4 right-0 w-96 h-96 bg-primary-dim/5 rounded-full blur-[120px] -z-10"
-        animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
-        transition={{ duration: 6, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-primary-dim/5 rounded-full blur-[150px] -z-10"
-        animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.6, 0.3] }}
-        transition={{ duration: 8, repeat: Infinity }}
-      />
+      {/* Background Glow */}
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary-dim/5 rounded-full blur-[120px] -z-10" />
 
       {/* Scroll Indicator */}
       <motion.div

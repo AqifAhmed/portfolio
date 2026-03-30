@@ -14,7 +14,7 @@ export default function Navbar() {
   }, []);
 
   const links = [
-    { label: "ABOUT", href: "#stats" },
+    { label: "ABOUT", href: "#about" },
     { label: "PROJECTS", href: "#projects" },
     { label: "CONTACT", href: "#contact" },
   ];
@@ -61,8 +61,8 @@ export default function Navbar() {
 
           {/* Mobile Menu Toggle (Terminal Icon) */}
           <motion.button
-            className="md:hidden p-2 text-primary-dim hover:bg-white/5 rounded transition-all duration-200 active:scale-95 relative z-50"
-            whileHover={{ scale: 1.1, rotate: 5 }}
+            className="md:hidden p-2 text-primary-dim bg-white/5 border border-white/10 rounded transition-all duration-200 active:scale-95 relative z-50"
+            whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.1)" }}
             whileTap={{ scale: 0.9 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -75,15 +75,8 @@ export default function Navbar() {
             </span>
           </motion.button>
 
-          {/* Desktop terminal icon (decorative) */}
-          <motion.div
-            className="hidden md:flex items-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-          >
-            <span className="material-symbols-outlined text-primary-dim/50 text-xl">terminal</span>
-          </motion.div>
+          {/* Spacer to balance logo */}
+          <div className="hidden md:block w-6" />
         </div>
 
         {/* Mobile Nav Menu */}

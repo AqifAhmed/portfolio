@@ -66,6 +66,7 @@ const config: Config = {
         headline: ["Space Grotesk", "sans-serif"],
         body: ["Inter", "sans-serif"],
         label: ["Inter", "sans-serif"],
+        quote: ["Cormorant Garamond", "serif"],
       },
       borderRadius: {
         DEFAULT: "0px",
