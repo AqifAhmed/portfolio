@@ -6,25 +6,24 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 const projects = [
   {
     id: "01",
-    title: "REPO_FINDER",
+    title: "NET_ZERO",
     description:
-      "A search engine for discovering GitHub repositories by topic, language, or keyword. Inspired by the Orion Store on Android — if you can discover apps that easily, why not open-source projects?",
-    tags: ["PYTHON / GITHUB_API / FASTAPI", "IN_ACTIVE_DEVELOPMENT"],
-    badge: { label: "ACTIVE_PHASE", accent: true },
-    image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80",
+      "A cross-platform mobile expense tracker built with React Native and Expo featuring full offline capability. Implements persistent AsyncStorage, custom global state management via React Context/useReducer, and a summary dashboard with category-based visual breakdowns.",
+    tags: ["REACT_NATIVE / EXPO / ASYNC_STORAGE", "OFFLINE_FIRST"],
+    badge: { label: "RELEASED", accent: true },
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
     imageLeft: true,
-    link: "https://github.com/AqifAhmed",
+    link: "https://github.com/AqifAhmed/NetZero",
   },
   {
     id: "02",
-    title: "PORTFOLIO_SITE",
+    title: "GITHUB_SEARCH_ENGINE",
     description:
-      "This portfolio — built with Next.js 14, Tailwind CSS, and Framer Motion. Deployed to Vercel. The project where I learned Git workflows, environment config, and production deployment.",
-    tags: ["NEXT.JS 14 / TAILWIND / FRAMER_MOTION", "DEPLOYED_ON_VERCEL"],
-    badge: { label: "LIVE", accent: false },
-    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80",
+      "A containerized search engine using Docker Compose for reproducible, environment-agnostic deployment. Implements BM25-based ranked retrieval via NLTK, a crawling pipeline, and optimized PostgreSQL full-text query lookups.",
+    tags: ["FASTAPI / POSTGRESQL / DOCKER / NLTK", "PRODUCTION_READY"],
+    badge: { label: "ACTIVE_PHASE", accent: false },
+    image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80",
     imageLeft: false,
-    link: "https://github.com/AqifAhmed/portfolio",
   },
 ];
 
