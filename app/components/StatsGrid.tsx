@@ -307,7 +307,7 @@ export default function StatsGrid() {
               </h3>
             </div>
             <div className="flex flex-wrap gap-2">
-              {["PYTHON", "FASTAPI", "POSTGRESQL", "DOCKER", "GIT"].map((tech, i) => (
+              {["PYTHON", "FASTAPI", "POSTGRESQL", "DOCKER", "REACT_NATIVE", "EXPO", "JAVASCRIPT", "GIT"].map((tech, i) => (
                 <motion.span
                   key={tech}
                   className="bg-surface-container-high px-3 py-1 text-[10px] font-mono tracking-widest cursor-default"
@@ -324,7 +324,7 @@ export default function StatsGrid() {
 
           <div className="mt-8 pt-8 border-t border-white/5 relative z-10">
             <p className="text-xs text-on-surface-variant font-body leading-relaxed">
-              Backend-focused software engineer. Building APIs, search tools, and web apps. Open to internships and freelance opportunities.
+              Backend & mobile software engineer. Building APIs, search engines, and cross-platform mobile applications. Open to internships and freelance opportunities.
             </p>
           </div>
         </motion.div>
