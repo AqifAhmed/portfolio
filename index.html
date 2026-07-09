@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aqif Ahmed — Backend Developer / AI Automation</title>
+<meta name="description" content="Aqif Ahmed — backend developer moving into AI automation. FastAPI, PostgreSQL, and LLM-powered workflows.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <a href="#top" class="nav__mark">AA<span class="nav__mark-dot">.</span></a>
+  <nav class="nav__links">
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="nav__actions">
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+      <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/></svg>
+      <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z"/></svg>
+    </button>
+    <button id="nav-burger" class="nav-burger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div id="mobile-menu" class="mobile-menu">
+  <a href="#about">About</a>
+  <a href="#work">Work</a>
+  <a href="#roadmap">Roadmap</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero__inner">
+      <p class="mono-tag">[ status: <span id="typed-status">learning_ai_automation</span><span class="cursor">_</span> ]</p>
+      <h1 class="hero__title">
+        Aqif Ahmed builds<br>
+        backend systems —<br>
+        now teaching them<br>
+        to run themselves.
+      </h1>
+      <p class="hero__lede">
+        6th-semester Software Engineering student in Lahore, Pakistan. I build with
+        Python, FastAPI, and PostgreSQL — and I'm pointing that foundation at AI
+        automation: agents, workflows, and LLM-powered systems that do the repetitive
+        work so people don't have to.
+      </p>
+      <div class="hero__cta">
+        <a href="assets/resume.pdf" class="btn btn--primary" download>Download résumé</a>
+        <a href="#work" class="btn btn--ghost">See the work ↓</a>
+      </div>
+    </div>
+    <div class="hero__profile">
+      <div class="profile-frame">
+        <img src="assets/profile.jpg" alt="Portrait of Aqif Ahmed" width="408" height="612">
+      </div>
+      <p class="profile-caption">Lahore, PK / UTC+5</p>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="section">
+    <p class="section-eyebrow">01 — About</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm currently completing my BSSE at the University of Central Punjab,
+          where my final-year project — <strong>Velocity Motorsports</strong>,
+          a car-import portal for overseas Pakistanis — took me deep into async
+          backends, job queues, and generated documents.
+        </p>
+        <p>
+          That's the foundation. What I'm building on top of it is AI automation:
+          using LLMs and orchestration tools to turn multi-step manual work into
+          workflows that run on their own. It's the intersection of what I already
+          know how to build and where I think the most interesting (and billable)
+          problems are heading.
+        </p>
+      </div>
+      <div class="about-stats">
+        <div class="stat">
+          <span class="stat__num">6th</span>
+          <span class="stat__label">Semester, BSSE</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">3</span>
+          <span class="stat__label">Shipped projects</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">2026</span>
+          <span class="stat__label">Pivoting to AI automation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills">
+      <div class="skill-group">
+        <h3 class="skill-group__title">Core — Backend</h3>
+        <ul class="skill-list">
+          <li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>Docker</li><li>Celery / Redis</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3 class="skill-group__title">Core — Frontend</h3>
+        <ul class="skill-list">
+          <li>React Native</li><li>Next.js</li><li>TypeScript</li><li>Expo</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3 class="skill-group__title">Learning — AI Automation</h3>
+        <ul class="skill-list">
+          <li>OpenAI API</li><li>LangChain</li><li>n8n</li><li>RAG / Vector DBs</li><li>Prompt Engineering</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORK (shipped projects, data-driven) ============ -->
+  <section id="work" class="section">
+    <p class="section-eyebrow">02 — Shipped</p>
+    <h2 class="section-title">Work I've actually finished.</h2>
+    <div id="shipped-grid" class="project-grid">
+      <!-- injected by js/main.js from data/projects.json -->
+    </div>
+  </section>
+
+  <!-- ============ ROADMAP (planned AI automation projects, data-driven) ============ -->
+  <section id="roadmap" class="section">
+    <p class="section-eyebrow">03 — Roadmap</p>
+    <h2 class="section-title">What I'm building next, in AI automation.</h2>
+    <p class="section-sub">
+      Three projects I'm using to learn the field properly — chosen because they're
+      the workflows people actually pay for, not just tutorial demos.
+    </p>
+    <div id="roadmap-list" class="roadmap-list">
+      <!-- injected by js/main.js from data/projects.json -->
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="section section--contact">
+    <p class="section-eyebrow">04 — Contact</p>
+    <h2 class="section-title">Let's build something that runs itself.</h2>
+    <p class="section-sub">
+      Open to internships, freelance automation work, and anyone who wants to talk
+      about agents over a coffee (or a call).
+    </p>
+    <div class="contact-links">
+      <a href="mailto:aqifarain@gmail.com" class="contact-link">
+        <span class="contact-link__label">Email</span>
+        <span class="contact-link__value">aqifarain@gmail.com ↗</span>
+      </a>
+      <a href="https://linkedin.com/in/aqifahmed" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link__label">LinkedIn</span>
+        <span class="contact-link__value">/in/aqifahmed ↗</span>
+      </a>
+      <a href="https://github.com/aqifahmed" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link__label">GitHub</span>
+        <span class="contact-link__value">@aqifahmed ↗</span>
+      </a>
+      <a href="https://aqifahmed.com" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link__label">Portfolio</span>
+        <span class="contact-link__value">aqifahmed.com ↗</span>
+      </a>
+      <a href="https://leetcode.com/aqifahmed" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link__label">LeetCode</span>
+        <span class="contact-link__value">@aqifahmed ↗</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>© <span id="year"></span> Aqif Ahmed. Built with plain HTML, CSS, and JS — hosted on GitHub Pages.</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

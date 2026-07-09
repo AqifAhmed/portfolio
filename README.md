@@ -1,163 +1,77 @@
-# 🚀 Aqif Ahmed — Developer Portfolio
+# aqifahmed.com — portfolio
 
-<p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?size=28&duration=3000&color=00C2FF&center=true&vCenter=true&width=600&lines=Backend+Developer;Building+Modern+Web+Apps;Always+Learning+🚀" />
-</p>
+Plain HTML / CSS / JS. No build step, no framework, no npm install.
+That's on purpose — see "Updating your projects" below.
 
----
+## Deploy to GitHub Pages
 
-## 🌟 About Me
+1. Create a repo (e.g. `aqifahmed/portfolio` or `aqifahmed/aqifahmed.github.io`
+   if you want it at the root domain).
+2. Push these files to the `main` branch:
+   ```
+   git init
+   git add .
+   git commit -m "portfolio site"
+   git branch -M main
+   git remote add origin https://github.com/aqifahmed/portfolio.git
+   git push -u origin main
+   ```
+3. On GitHub: **Settings → Pages → Source → Deploy from a branch → main / (root)**.
+4. Your site goes live at `https://aqifahmed.github.io/portfolio/`
+   (or `https://aqifahmed.github.io/` if you used the special repo name).
+5. To use your custom domain `aqifahmed.com`, add a `CNAME` file in this folder
+   containing just `aqifahmed.com`, and point your domain's DNS at GitHub Pages
+   (GitHub's docs: Settings → Pages → Custom domain, it walks you through it).
 
-Hi 👋 I'm **Aqif Ahmed**
+## Updating your projects (no code editing)
 
-* 💻 Passionate about **Backend Development & Problem Solving**
-* 🚀 Building projects using **Python & FASTAPI**
-* 📚 Constantly improving my skills
-* 🎯 Goal: Become a top-tier software engineer
+Everything in the **Work** and **Roadmap** sections is read from one file:
 
----
-
-## 🌐 Live Demo
-
-👉 [https://aqifahmed.com](https://aqifahmed.com)
-
----
-
-## 🛠️ Tech Stack
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=nextjs,ts,js,react,tailwind,nodejs,git,github,vscode" />
-</p>
-
----
-
-## ⚡ Features
-
-* ⚡ Next.js App Router
-* 🎨 Tailwind CSS modern UI
-* 📱 Fully responsive
-* 📊 GitHub + LeetCode stats integration
-* 🖱️ Custom cursor
-* 📄 Resume download
-* 📬 Contact section
-
----
-
-## 📂 Project Structure
-
-```bash
-portfolio-fixed/
-├── app/
-│   ├── components/
-│   │   ├── About.tsx
-│   │   ├── Contact.tsx
-│   │   ├── CustomCursor.tsx
-│   │   ├── Footer.tsx
-│   │   ├── Hero.tsx
-│   │   ├── Navbar.tsx
-│   │   ├── Projects.tsx
-│   │   └── StatsGrid.tsx
-│   │
-│   ├── api/
-│   │   ├── github/
-│   │   │   └── route.ts
-│   │   └── leetcode/
-│   │       └── route.ts
-│   │
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx
-│
-├── public/
-│   ├── perfil.png
-│   └── resume.pdf
-│
-├── package.json
-├── package-lock.json
-├── tsconfig.json
-├── tailwind.config.ts
-├── postcss.config.js
-├── next.config.js
-├── next-env.d.ts
-├── AGENTS.md
-└── CLAUDE.md
+```
+data/projects.json
 ```
 
----
+To add, edit, or remove a project, open that file (directly in GitHub's web
+editor — no local setup needed) and edit the JSON. Two lists:
 
-## 📊 GitHub Stats
+- `"shipped"` — finished projects, shown in the Work section.
+- `"roadmap"` — planned/learning projects, shown in the Roadmap section.
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=AqifAhmed&show_icons=true&theme=tokyonight" height="180"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=AqifAhmed&theme=tokyonight" height="180"/>
-</p>
+Example — adding a new shipped project:
 
----
-
-## 🧠 LeetCode Stats
-
-<p align="center">
-  <img src="https://leetcard.jacoblin.cool/AqifAhmed?theme=dark&font=baloo&ext=heatmap" />
-</p>
-
----
-
-## ⚙️ Getting Started
-
-```bash
-# Clone repo
-git clone https://github.com/AqifAhmed/portfolio.git
-
-# Install dependencies
-npm install
-
-# Run dev server
-npm run dev
+```json
+{
+  "title": "Inbox Triage Agent",
+  "subtitle": "AI Email Automation",
+  "description": "One or two sentences on what it does.",
+  "tech": ["n8n", "OpenAI API", "Python"],
+  "status": "shipped",
+  "year": "2026",
+  "github": "https://github.com/aqifahmed/inbox-agent",
+  "demo": ""
+}
 ```
 
----
+Steps on GitHub.com, no terminal required:
+1. Go to your repo → `data/projects.json`.
+2. Click the pencil (Edit) icon.
+3. Add your project object inside the `"shipped"` array (comma-separate it
+   from the one before it).
+4. Scroll down → "Commit changes".
+5. GitHub Pages redeploys automatically in under a minute. Refresh your site.
 
-## 🚀 Deployment
+Moving a project from "planned" into "shipped" once you finish it: cut the
+object out of `roadmap` and paste it into `shipped`, add `"github"` and
+`"year"`, done.
 
-Deploy easily on **Vercel**:
+## Local preview
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import)
+Because `main.js` fetches `data/projects.json`, opening `index.html` directly
+via `file://` will fail (browsers block local `fetch` on that protocol). Run
+a tiny local server instead:
 
----
+```
+python3 -m http.server 8000
+```
 
-## 📄 Resume
-
-📥 [Download Resume](./public/resume.pdf)
-
----
-
-## 🤝 Connect With Me
-
-<p align="center">
-
-<a href="https://github.com/AqifAhmed">
-  <img src="https://skillicons.dev/icons?i=github" />
-</a>
-
-<a href="https://linkedin.com/in/AqifAhmed">
-  <img src="https://skillicons.dev/icons?i=linkedin" />
-</a>
-
-<a href="mailto:aqifarain@gmail.com">
-  <img src="https://skillicons.dev/icons?i=gmail" />
-</a>
-
-</p>
-
----
-
-## ⭐ Support
-
-If you like this project, give it a ⭐ on GitHub!
-
----
-
-## 📜 License
-
-This project is licensed under the **MIT License**.
-
+then open `http://localhost:8000`.

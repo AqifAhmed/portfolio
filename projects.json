@@ -1,0 +1,60 @@
+{
+  "shipped": [
+    {
+      "title": "Velocity Motorsports",
+      "subtitle": "Final Year Project",
+      "description": "A web portal that lets overseas Pakistanis import used cars from Japan — handling listings, order tracking, and auto-generated shipping documents.",
+      "tech": ["FastAPI", "PostgreSQL", "Celery", "Redis", "WeasyPrint"],
+      "status": "shipped",
+      "year": "2026",
+      "github": "",
+      "demo": ""
+    },
+    {
+      "title": "Net Zero",
+      "subtitle": "Expense Tracker App",
+      "description": "A cross-platform mobile expense tracker with full offline support, per-category breakdowns, and a dark-themed UI built from a shared design system.",
+      "tech": ["React Native", "Expo", "JavaScript", "AsyncStorage"],
+      "status": "shipped",
+      "year": "2025",
+      "github": "https://github.com/aqifahmed/NetZero",
+      "demo": ""
+    },
+    {
+      "title": "GitHub Search Engine",
+      "subtitle": "BM25 Repository Search",
+      "description": "A containerized FastAPI search engine that crawls and ranks GitHub repositories using BM25 retrieval and NLTK-based text preprocessing.",
+      "tech": ["FastAPI", "PostgreSQL", "Docker", "NLTK"],
+      "status": "shipped",
+      "year": "2025",
+      "github": "",
+      "demo": ""
+    }
+  ],
+  "roadmap": [
+    {
+      "title": "Inbox Triage Agent",
+      "subtitle": "AI Email & Lead Automation",
+      "description": "An agent that reads incoming email, classifies intent, drafts replies in my voice, and pushes qualified leads into a sheet or CRM — built as an n8n workflow with an LLM node in the loop.",
+      "tech": ["n8n", "OpenAI API", "Gmail API", "Python"],
+      "status": "planned",
+      "why": "Directly monetizable as a freelance service — this is the #1 workflow small businesses pay for."
+    },
+    {
+      "title": "Research & Report Pipeline",
+      "subtitle": "Multi-Agent Automation",
+      "description": "A crew of agents that scrapes sources on a topic, cross-checks facts, and compiles a structured report on a schedule — no human clicking 'go' each time.",
+      "tech": ["LangChain / CrewAI", "Web Scraping", "Vector DB", "Cron"],
+      "status": "planned",
+      "why": "Teaches multi-agent orchestration, the skill most AI automation clients actually ask for."
+    },
+    {
+      "title": "Support Desk Copilot",
+      "subtitle": "RAG Chatbot + Workflow Automation",
+      "description": "A support chatbot that answers from a company's own docs via RAG, and automatically escalates or files tickets when it can't help — wired into a FastAPI backend I already know how to build.",
+      "tech": ["FastAPI", "pgvector", "OpenAI API", "n8n"],
+      "status": "planned",
+      "why": "The natural bridge from my current backend stack (FastAPI + Postgres) into AI automation."
+    }
+  ]
+}
