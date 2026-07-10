@@ -9,6 +9,7 @@
   --ink-3: #9c9c9c;
   --line: #e4e4e4;
   --line-strong: #0a0a0a;
+  --ok: #16a34a;
 
   --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
   --font-mono: 'Geist Mono', ui-monospace, monospace;
@@ -33,6 +34,7 @@ html[data-theme="dark"] {
   --ink-3: #636363;
   --line: #222222;
   --line-strong: #f5f5f5;
+  --ok: #22c55e;
 }
 
 /* ==========================================================================
@@ -237,7 +239,7 @@ em { font-style: italic; font-weight: 300; }
 .hero__status { display: inline-flex; align-items: center; gap: 0.6em; text-transform: uppercase; }
 .status-dot {
   width: 7px; height: 7px; border-radius: 50%;
-  background: var(--ink);
+  background: var(--ok);
   animation: pulse 2.4s var(--ease) infinite;
 }
 @keyframes pulse {
@@ -491,48 +493,6 @@ em { font-style: italic; font-weight: 300; }
 .stack-row__items { font-size: 0.95rem; color: var(--ink-2); }
 
 /* ==========================================================================
-   BACKGROUND
-   ========================================================================== */
-.bg-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  gap: var(--s5);
-  align-items: start;
-}
-.bg-text { display: grid; gap: var(--s3); justify-items: start; }
-.bg-text p { color: var(--ink-2); max-width: 58ch; }
-.bg-text strong { color: var(--ink); font-weight: 500; }
-
-.portrait {
-  overflow: hidden;
-  border-radius: 6px;
-  border: 1px solid var(--line);
-}
-.portrait img {
-  filter: grayscale(1) contrast(1.05);
-  transition: filter 500ms var(--ease), transform 700ms var(--ease);
-}
-.portrait:hover img { filter: grayscale(0.4) contrast(1); transform: scale(1.02); }
-
-.bg-projects { margin-top: var(--s3); border-top: 1px solid var(--line); }
-.bg-projects li {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: var(--s2);
-  padding: 0.8rem 0;
-  border-bottom: 1px solid var(--line);
-}
-.bg-projects__name { font-size: 0.95rem; font-weight: 500; }
-a.bg-projects__name:hover { text-decoration: underline; text-underline-offset: 3px; }
-.bg-projects__meta {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--ink-3);
-  white-space: nowrap;
-}
-
-/* ==========================================================================
    CONTACT
    ========================================================================== */
 .section--contact { padding-bottom: var(--s6); }
@@ -632,14 +592,6 @@ a.bg-projects__name:hover { text-decoration: underline; text-underline-offset: 3
    ========================================================================== */
 @media (max-width: 900px) {
   .method-grid { grid-template-columns: repeat(2, 1fr); }
-  .bg-grid { grid-template-columns: 1fr; gap: var(--s4); }
-  .bg-side {
-    display: grid;
-    grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
-    gap: var(--s3);
-    align-items: start;
-  }
-  .bg-projects { margin-top: 0; }
   .contact-links { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -658,7 +610,5 @@ a.bg-projects__name:hover { text-decoration: underline; text-underline-offset: 3
   .system__foot { flex-direction: column; align-items: flex-start; }
 
   .method-grid { grid-template-columns: 1fr; }
-  .bg-side { grid-template-columns: 1fr; }
-  .portrait { max-width: 280px; }
   .stack-row { grid-template-columns: 1fr; gap: 0.3rem; }
 }
