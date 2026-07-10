@@ -3,12 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aqif Ahmed — Backend Developer / AI Automation</title>
-<meta name="description" content="Aqif Ahmed — backend developer moving into AI automation. FastAPI, PostgreSQL, and LLM-powered workflows.">
+<title>Aqif Ahmed — Backend Engineer, moving into AI Automation</title>
+<meta name="description" content="Aqif Ahmed builds backend systems and is moving into AI automation — agents, workflows, and LLM-powered systems that remove repetitive work.">
+<meta property="og:title" content="Aqif Ahmed — Backend Engineer, moving into AI Automation">
+<meta property="og:description" content="Backend systems, now teaching them to run themselves.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#09090A">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -16,59 +20,59 @@
 
 <!-- ============ NAV ============ -->
 <header class="nav">
-  <a href="#top" class="nav__mark">AA<span class="nav__mark-dot">.</span></a>
+  <a href="#top" class="nav__mark"><span class="nav__mark-dot"></span>Aqif Ahmed</a>
   <nav class="nav__links">
-    <a href="#about">About</a>
-    <a href="#work">Work</a>
-    <a href="#roadmap">Roadmap</a>
-    <a href="#contact">Contact</a>
+    <a href="#about">01 About</a>
+    <a href="#journey">02 Journey</a>
+    <a href="#work">03 Work</a>
+    <a href="#contact">04 Contact</a>
   </nav>
   <div class="nav__actions">
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
       <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/></svg>
       <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z"/></svg>
     </button>
-    <button id="nav-burger" class="nav-burger" aria-label="Open menu">
+    <button id="nav-burger" class="nav-burger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
 <div id="mobile-menu" class="mobile-menu">
-  <a href="#about">About</a>
-  <a href="#work">Work</a>
-  <a href="#roadmap">Roadmap</a>
-  <a href="#contact">Contact</a>
+  <a href="#about">01 About</a>
+  <a href="#journey">02 Journey</a>
+  <a href="#work">03 Work</a>
+  <a href="#contact">04 Contact</a>
 </div>
 
 <main id="top">
 
   <!-- ============ HERO ============ -->
   <section class="hero">
-    <div class="hero__inner">
-      <p class="mono-tag">[ status: <span id="typed-status">learning_ai_automation</span><span class="cursor">_</span> ]</p>
+    <div class="hero__copy">
+      <span class="hero__eyebrow"><span class="status-dot"></span> Open to internships &amp; freelance work</span>
       <h1 class="hero__title">
-        Aqif Ahmed builds<br>
-        backend systems —<br>
-        now teaching them<br>
-        to run themselves.
+        I build backend systems.<br>
+        <em>Now I'm teaching them<br>to run themselves.</em>
       </h1>
       <p class="hero__lede">
-        6th-semester Software Engineering student in Lahore, Pakistan. I build with
-        Python, FastAPI, and PostgreSQL — and I'm pointing that foundation at AI
-        automation: agents, workflows, and LLM-powered systems that do the repetitive
-        work so people don't have to.
+        Aqif Ahmed — final-year Software Engineering student in Lahore. My
+        foundation is Python, FastAPI, and PostgreSQL. I'm pointing that at AI
+        automation: agents and workflows that take repetitive work off someone's
+        plate for good.
       </p>
       <div class="hero__cta">
-        <a href="assets/resume.pdf" class="btn btn--primary" download>Download résumé</a>
-        <a href="#work" class="btn btn--ghost">See the work ↓</a>
+        <a href="assets/resume.pdf" class="btn btn--primary magnetic" download>Download résumé</a>
+        <a href="#work" class="btn btn--ghost magnetic">View work</a>
       </div>
     </div>
-    <div class="hero__profile">
-      <div class="profile-frame">
-        <img src="assets/profile.jpg" alt="Portrait of Aqif Ahmed" width="408" height="612">
+
+    <div class="hero__terminal" aria-hidden="true">
+      <div class="terminal__bar">
+        <span class="terminal__dot"></span><span class="terminal__dot"></span><span class="terminal__dot"></span>
+        <span class="terminal__title">pipeline.py</span>
       </div>
-      <p class="profile-caption">Lahore, PK / UTC+5</p>
+      <div class="terminal__body" id="terminal-body"></div>
     </div>
   </section>
 
@@ -76,93 +80,164 @@
   <section id="about" class="section">
     <p class="section-eyebrow">01 — About</p>
     <div class="about-grid">
-      <div class="about-text">
+      <div class="about-text reveal">
         <p>
-          I'm currently completing my BSSE at the University of Central Punjab,
-          where my final-year project — <strong>Velocity Motorsports</strong>,
-          a car-import portal for overseas Pakistanis — took me deep into async
-          backends, job queues, and generated documents.
+          I'm completing my BSSE at the University of Central Punjab. My final-year
+          project, <strong>Velocity Motorsports</strong>, is a car-import portal for
+          overseas Pakistanis — async job queues, generated shipping documents, the
+          kind of backend work that has to actually hold up under real use.
         </p>
         <p>
-          That's the foundation. What I'm building on top of it is AI automation:
-          using LLMs and orchestration tools to turn multi-step manual work into
-          workflows that run on their own. It's the intersection of what I already
-          know how to build and where I think the most interesting (and billable)
-          problems are heading.
+          That's the base I'm building on. AI automation is where I'm putting my
+          energy now: using LLMs and orchestration to turn manual, multi-step work
+          into something that runs on its own. It's the part of this field that's
+          both the most interesting problem to solve and the most useful thing I
+          can offer someone paying for it.
         </p>
       </div>
-      <div class="about-stats">
-        <div class="stat">
-          <span class="stat__num">6th</span>
-          <span class="stat__label">Semester, BSSE</span>
+      <div class="reveal">
+        <div class="profile-card">
+          <img src="assets/profile.jpg" alt="Portrait of Aqif Ahmed" width="408" height="612">
+          <div class="profile-card__meta">
+            <span class="profile-card__name">Aqif Ahmed</span>
+            <span class="profile-card__loc">Lahore, PK / UTC+5</span>
+          </div>
         </div>
-        <div class="stat">
-          <span class="stat__num">3</span>
-          <span class="stat__label">Shipped projects</span>
+      <div class="value-list">
+        <div class="value-item">
+          <span class="value-item__mark">01</span>
+          <div>
+            <p class="value-item__title">Ships, doesn't just demo</p>
+            <p class="value-item__desc">Three finished projects, not tutorials — each one solves a real, specific problem end to end.</p>
+          </div>
         </div>
-        <div class="stat">
-          <span class="stat__num">2026</span>
-          <span class="stat__label">Pivoting to AI automation</span>
+        <div class="value-item">
+          <span class="value-item__mark">02</span>
+          <div>
+            <p class="value-item__title">Backend-first thinking</p>
+            <p class="value-item__desc">Automation is only as good as the system underneath it — that's the part I already know how to build well.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <span class="value-item__mark">03</span>
+          <div>
+            <p class="value-item__title">Learning in public</p>
+            <p class="value-item__desc">The roadmap below is real and unfinished on purpose — you're seeing the direction, not a polished afterthought.</p>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="skills">
-      <div class="skill-group">
-        <h3 class="skill-group__title">Core — Backend</h3>
-        <ul class="skill-list">
-          <li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>Docker</li><li>Celery / Redis</li>
-        </ul>
+  <!-- ============ JOURNEY (timeline) ============ -->
+  <section id="journey" class="section">
+    <p class="section-eyebrow">02 — Journey</p>
+    <h2 class="section-title reveal">How I got to backend + automation.</h2>
+    <div class="journey">
+      <div class="journey-item reveal">
+        <span class="journey-item__date">2023</span>
+        <span class="journey-item__node"></span>
+        <div>
+          <h3 class="journey-item__title">Started BSSE at UCP</h3>
+          <p class="journey-item__desc">Foundations in CS and software engineering — data structures, OS internals, socket programming in C.</p>
+        </div>
       </div>
-      <div class="skill-group">
-        <h3 class="skill-group__title">Core — Frontend</h3>
-        <ul class="skill-list">
-          <li>React Native</li><li>Next.js</li><li>TypeScript</li><li>Expo</li>
-        </ul>
+      <div class="journey-item reveal">
+        <span class="journey-item__date">2025</span>
+        <span class="journey-item__node"></span>
+        <div>
+          <h3 class="journey-item__title">Went deep on backend</h3>
+          <p class="journey-item__desc">FastAPI, PostgreSQL, Docker, Celery/Redis. Shipped Net Zero and the GitHub Search Engine using this stack.</p>
+        </div>
       </div>
-      <div class="skill-group">
-        <h3 class="skill-group__title">Learning — AI Automation</h3>
-        <ul class="skill-list">
-          <li>OpenAI API</li><li>LangChain</li><li>n8n</li><li>RAG / Vector DBs</li><li>Prompt Engineering</li>
-        </ul>
+      <div class="journey-item journey-item--current reveal">
+        <span class="journey-item__date">2026</span>
+        <span class="journey-item__node"></span>
+        <div>
+          <h3 class="journey-item__title">Velocity Motorsports — FYP defence</h3>
+          <p class="journey-item__desc">Final-year project, defended. My largest system to date: async processing, generated documents, real users in mind.</p>
+        </div>
+      </div>
+      <div class="journey-item journey-item--future reveal">
+        <span class="journey-item__date">Now</span>
+        <span class="journey-item__node"></span>
+        <div>
+          <h3 class="journey-item__title">Pivoting into AI automation</h3>
+          <p class="journey-item__desc">Learning LangChain, n8n, and RAG — building the three projects in the roadmap below to prove it, not just claim it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS (stack cards) ============ -->
+  <section id="skills" class="section">
+    <p class="section-eyebrow">— Stack</p>
+    <div class="stack-grid">
+      <div class="stack-card reveal">
+        <p class="stack-card__label">core / backend</p>
+        <h3 class="stack-card__title">What I build with</h3>
+        <div class="chip-row">
+          <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">Docker</span><span class="chip">Celery / Redis</span>
+        </div>
+      </div>
+      <div class="stack-card reveal">
+        <p class="stack-card__label">core / frontend</p>
+        <h3 class="stack-card__title">What I ship UI with</h3>
+        <div class="chip-row">
+          <span class="chip">React Native</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Expo</span>
+        </div>
+      </div>
+      <div class="stack-card reveal">
+        <p class="stack-card__label">learning / ai automation</p>
+        <h3 class="stack-card__title">What I'm learning now</h3>
+        <div class="chip-row">
+          <span class="chip">OpenAI API</span><span class="chip">LangChain</span><span class="chip">n8n</span><span class="chip">RAG / Vector DBs</span><span class="chip">Prompt Engineering</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============ WORK (shipped projects, data-driven) ============ -->
   <section id="work" class="section">
-    <p class="section-eyebrow">02 — Shipped</p>
-    <h2 class="section-title">Work I've actually finished.</h2>
+    <div class="section-head">
+      <div>
+        <p class="section-eyebrow">03 — Work</p>
+        <h2 class="section-title" style="margin-bottom:0;">Projects I've actually finished.</h2>
+      </div>
+    </div>
     <div id="shipped-grid" class="project-grid">
-      <!-- injected by js/main.js from data/projects.json -->
+      <!-- injected by js/projects.js from data/projects.json -->
     </div>
   </section>
 
   <!-- ============ ROADMAP (planned AI automation projects, data-driven) ============ -->
   <section id="roadmap" class="section">
-    <p class="section-eyebrow">03 — Roadmap</p>
-    <h2 class="section-title">What I'm building next, in AI automation.</h2>
-    <p class="section-sub">
-      Three projects I'm using to learn the field properly — chosen because they're
-      the workflows people actually pay for, not just tutorial demos.
+    <p class="section-eyebrow">— Roadmap</p>
+    <h2 class="section-title reveal">What I'm building next, in AI automation.</h2>
+    <p class="section-sub reveal">
+      Three projects chosen because they're workflows people actually pay for —
+      and because each one extends the backend stack I already build with.
     </p>
-    <div id="roadmap-list" class="roadmap-list">
-      <!-- injected by js/main.js from data/projects.json -->
+    <div id="roadmap-list" class="roadmap-list" style="margin-top: var(--space-4);">
+      <!-- injected by js/projects.js from data/projects.json -->
     </div>
   </section>
 
   <!-- ============ CONTACT ============ -->
   <section id="contact" class="section section--contact">
     <p class="section-eyebrow">04 — Contact</p>
-    <h2 class="section-title">Let's build something that runs itself.</h2>
-    <p class="section-sub">
-      Open to internships, freelance automation work, and anyone who wants to talk
-      about agents over a coffee (or a call).
-    </p>
+    <div class="contact-banner reveal">
+      <h2 class="section-title">Let's build something that runs itself.</h2>
+      <p class="section-sub">
+        Open to internships, freelance automation work, and anyone who wants to
+        talk about agents over a coffee — or a call.
+      </p>
+      <a href="mailto:aqifarain@gmail.com" class="btn btn--primary magnetic">Say hello ↗</a>
+    </div>
     <div class="contact-links">
       <a href="mailto:aqifarain@gmail.com" class="contact-link">
         <span class="contact-link__label">Email</span>
-        <span class="contact-link__value">aqifarain@gmail.com ↗</span>
+        <span class="contact-link__value">Write directly ↗</span>
       </a>
       <a href="https://linkedin.com/in/aqifahmed" target="_blank" rel="noopener" class="contact-link">
         <span class="contact-link__label">LinkedIn</span>
@@ -171,10 +246,6 @@
       <a href="https://github.com/aqifahmed" target="_blank" rel="noopener" class="contact-link">
         <span class="contact-link__label">GitHub</span>
         <span class="contact-link__value">@aqifahmed ↗</span>
-      </a>
-      <a href="https://aqifahmed.com" target="_blank" rel="noopener" class="contact-link">
-        <span class="contact-link__label">Portfolio</span>
-        <span class="contact-link__value">aqifahmed.com ↗</span>
       </a>
       <a href="https://leetcode.com/aqifahmed" target="_blank" rel="noopener" class="contact-link">
         <span class="contact-link__label">LeetCode</span>
@@ -186,9 +257,9 @@
 </main>
 
 <footer class="footer">
-  <p>© <span id="year"></span> Aqif Ahmed. hosted on GitHub Pages.</p>
+  <p>© <span id="year"></span> Aqif Ahmed. Built with plain HTML, CSS &amp; JS — hosted on GitHub Pages.</p>
 </footer>
 
-<script src="js/main.js"></script>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>

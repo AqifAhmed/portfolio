@@ -3,6 +3,14 @@
 Plain HTML / CSS / JS. No build step, no framework, no npm install.
 That's on purpose — see "Updating your projects" below.
 
+JS is split into small ES6 modules under `js/`, each with one job:
+- `theme.js` — dark/light toggle
+- `nav.js` — mobile menu + footer year
+- `terminal.js` — the hero terminal typing animation
+- `reveal.js` — scroll-reveal + magnetic button effect
+- `projects.js` — reads `data/projects.json` and renders Work + Roadmap
+- `main.js` — wires the above together, loaded as the only `<script>` tag
+
 ## Deploy to GitHub Pages
 
 1. Create a repo (e.g. `aqifahmed/portfolio` or `aqifahmed/aqifahmed.github.io`
