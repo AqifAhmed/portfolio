@@ -1,82 +1,49 @@
 # aqifahmed.com — portfolio
 
-Plain HTML / CSS / JS. No build step, no framework, no npm install.
-That's on purpose — see "Updating your projects" below.
+Minimal, monochrome portfolio. Plain HTML / CSS / JS — no build step, no
+framework, no npm install. That's deliberate: GitHub Pages serves it as-is,
+and there's nothing to break.
 
-JS is split into small ES6 modules under `js/`, each with one job:
-- `theme.js` — dark/light toggle
-- `nav.js` — mobile menu + footer year
-- `terminal.js` — the hero terminal typing animation
-- `reveal.js` — scroll-reveal + magnetic button effect
-- `projects.js` — reads `data/projects.json` and renders Work + Roadmap
-- `main.js` — wires the above together, loaded as the only `<script>` tag
+## Structure
 
-## Deploy to GitHub Pages
+- `index.html` — all content lives here. To edit a project, section, or link,
+  edit the HTML directly (it's organized with clear `<!-- SECTION -->` markers).
+- `css/style.css` — design tokens at the top (`:root` for light,
+  `html[data-theme="dark"]` for dark), then one block per section.
+- `js/main.js` — theme toggle, mobile menu, scroll reveal, local-time clock.
+  One file, no dependencies.
+- `assets/` — profile photo and résumé PDF.
 
-1. Create a repo (e.g. `aqifahmed/portfolio` or `aqifahmed/aqifahmed.github.io`
-   if you want it at the root domain).
-2. Push these files to the `main` branch:
-   ```
-   git init
-   git add .
-   git commit -m "portfolio site"
-   git branch -M main
-   git remote add origin https://github.com/aqifahmed/portfolio.git
-   git push -u origin main
-   ```
-3. On GitHub: **Settings → Pages → Source → Deploy from a branch → main / (root)**.
-4. Your site goes live at `https://aqifahmed.github.io/portfolio/`
-   (or `https://aqifahmed.github.io/` if you used the special repo name).
-5. To use your custom domain `aqifahmed.com`, add a `CNAME` file in this folder
-   containing just `aqifahmed.com`, and point your domain's DNS at GitHub Pages
-   (GitHub's docs: Settings → Pages → Custom domain, it walks you through it).
+## Design
 
-## Updating your projects (no code editing)
+- Strict black-and-white monochrome, light + dark themes (toggle in the nav,
+  respects system preference, persisted in `localStorage`).
+- Typeface: Geist + Geist Mono via Google Fonts.
+- Animations: hero line-reveal on load, IntersectionObserver scroll reveals,
+  marquee. All honor `prefers-reduced-motion`.
 
-Everything in the **Work** and **Roadmap** sections is read from one file:
+## Editing content
 
-```
-data/projects.json
-```
+Everything is in `index.html`:
 
-To add, edit, or remove a project, open that file (directly in GitHub's web
-editor — no local setup needed) and edit the JSON. Two lists:
+- **Systems** (`#systems`) — the three featured automation case studies.
+  Each is an `<article class="system">` block; copy one to add another.
+- **Method** (`#method`) — the six build principles.
+- **Stack** (`#stack`) — the capability rows.
+- **Background** (`#background`) — bio, portrait, earlier projects list.
+- **Contact** (`#contact`) — email + social links.
 
-- `"shipped"` — finished projects, shown in the Work section.
-- `"roadmap"` — planned/learning projects, shown in the Roadmap section.
+You can edit directly in GitHub's web editor; Pages redeploys automatically
+in under a minute.
 
-Example — adding a new shipped project:
+## Deploy
 
-```json
-{
-  "title": "Inbox Triage Agent",
-  "subtitle": "AI Email Automation",
-  "description": "One or two sentences on what it does.",
-  "tech": ["n8n", "OpenAI API", "Python"],
-  "status": "shipped",
-  "year": "2026",
-  "github": "https://github.com/aqifahmed/inbox-agent",
-  "demo": ""
-}
-```
-
-Steps on GitHub.com, no terminal required:
-1. Go to your repo → `data/projects.json`.
-2. Click the pencil (Edit) icon.
-3. Add your project object inside the `"shipped"` array (comma-separate it
-   from the one before it).
-4. Scroll down → "Commit changes".
-5. GitHub Pages redeploys automatically in under a minute. Refresh your site.
-
-Moving a project from "planned" into "shipped" once you finish it: cut the
-object out of `roadmap` and paste it into `shipped`, add `"github"` and
-`"year"`, done.
+Already wired: push to `main`, GitHub Pages serves it at `aqifahmed.com`
+(the `CNAME` file handles the custom domain).
 
 ## Local preview
 
-Because `main.js` fetches `data/projects.json`, opening `index.html` directly
-via `file://` will fail (browsers block local `fetch` on that protocol). Run
-a tiny local server instead:
+Any static server works:
 
 ```
 python3 -m http.server 8000
