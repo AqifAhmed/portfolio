@@ -149,29 +149,29 @@
       </p>
     </div>
 
-    <!-- 01 GitHub Search Engine -->
+    <!-- 01 InvisibleSearch -->
     <article class="system reveal">
       <div class="system__index" aria-hidden="true">01</div>
       <div class="system__body">
         <header class="system__head">
-          <h3 class="system__title">GitHub Search Engine</h3>
-          <span class="system__tag">Containerized search pipeline</span>
+          <h3 class="system__title">InvisibleSearch</h3>
+          <span class="system__tag">Live GitHub search engine</span>
         </header>
         <p class="system__desc">
-          A document crawling and indexing pipeline, containerized with
-          Docker Compose into a reproducible deployment that runs identically
-          across environments.
+          A minimal search engine over all of GitHub, live. Queries proxy
+          straight to the GitHub search index through a FastAPI backend —
+          no database, nothing to crawl or sync.
         </p>
         <ul class="system__points">
-          <li>Configured service networking, environment variables, and persistent volumes for a PostgreSQL database container.</li>
-          <li>Built a crawling and indexing pipeline with a PostgreSQL schema optimized for fast query lookups.</li>
-          <li>One command brings the full multi-service stack up on any machine.</li>
+          <li>Built <code>/search</code> and <code>/suggest</code> endpoints that map GitHub API responses into typed, paginated results with a debounced, keyboard-navigable type-ahead.</li>
+          <li>Rate-limit aware by design: 60s in-memory cache per query, structured 429s with reset timestamps, and quota warnings surfaced in the UI.</li>
+          <li>Containerized with Docker Compose; pytest suite runs against a mocked GitHub client.</li>
         </ul>
         <div class="system__foot">
           <div class="chip-row">
-            <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Docker Compose</span><span class="chip">PostgreSQL</span>
+            <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">JavaScript</span><span class="chip">Docker Compose</span>
           </div>
-          <span class="system__metric">Reproducible deployment</span>
+          <a href="https://github.com/AqifAhmed/InvisibleSearch" target="_blank" rel="noopener" class="system__metric">github.com/AqifAhmed/InvisibleSearch ↗</a>
         </div>
       </div>
     </article>
