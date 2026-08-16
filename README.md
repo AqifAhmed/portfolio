@@ -26,11 +26,11 @@ and there's nothing to break.
 
 Everything is in `index.html`:
 
-- **Systems** (`#systems`) — the three featured automation case studies.
-  Each is an `<article class="system">` block; copy one to add another.
-- **Method** (`#method`) — the six build principles.
-- **Stack** (`#stack`) — the capability rows.
-- **Background** (`#background`) — bio, portrait, earlier projects list.
+- **Work** (`#work`) — the six-step approach (logic → repeatable → data → failure handling → ship → maintain).
+  Each is a `<div class="method-item">` block; copy one to add another.
+- **Projects** (`#projects`) — the featured builds. Each is an
+  `<article class="system">` block; copy one to add another.
+- **Stack** (`#skills`) — the capability rows.
 - **Contact** (`#contact`) — email + social links.
 
 You can edit directly in GitHub's web editor; Pages redeploys automatically
