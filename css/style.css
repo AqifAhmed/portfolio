@@ -280,8 +280,16 @@ main { max-width: var(--container); margin: 0 auto; padding: 0 var(--pad); }
   pointer-events: none;
 }
 
+.hero__panels {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: var(--s4);
+  align-items: center;
+}
+
 .terminal {
   max-width: 760px;
+  width: 100%;
   border: 1px solid var(--line);
   border-radius: 12px;
   overflow: hidden;
@@ -319,6 +327,23 @@ main { max-width: var(--container); margin: 0 auto; padding: 0 var(--pad); }
 .cmd-text { color: var(--ink); }
 .term-line.out { color: var(--ink-2); }
 .term-line .hl { color: var(--accent); font-weight: 500; }
+
+/* portrait panel — matches the terminal chrome */
+.portrait {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-raise);
+  box-shadow: 0 20px 60px -30px color-mix(in srgb, var(--ink) 40%, transparent);
+  max-width: 320px;
+  width: 100%;
+  justify-self: end;
+}
+.portrait__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
 /* blinking cursor */
 .cursor {
@@ -591,6 +616,8 @@ main { max-width: var(--container); margin: 0 auto; padding: 0 var(--pad); }
   .mobile-menu { display: flex; }
 
   .hero { gap: var(--s3); }
+  .hero__panels { grid-template-columns: 1fr; gap: var(--s3); }
+  .portrait { justify-self: center; }
   .hero__cta { width: 100%; }
   .hero__cta .btn { flex: 1; }
 
