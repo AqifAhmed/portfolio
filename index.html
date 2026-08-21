@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aqif Ahmed — Workflow Automation</title>
-<meta name="description" content="Aqif Ahmed is a Software Engineering graduate who builds workflow automation — Python, JavaScript, Docker Compose, and APIs that turn manual processes into dependable pipelines.">
-<meta property="og:title" content="Aqif Ahmed — Workflow Automation">
-<meta property="og:description" content="Scripts, pipelines, and automations that turn manual processes into dependable ones.">
+<title>Aqif Ahmed — AI Engineer</title>
+<meta name="description" content="Aqif Ahmed is a Software Engineering graduate building practical AI — LLMs, RAG pipelines, and AI agents that apply pre-trained models to real work.">
+<meta property="og:title" content="Aqif Ahmed — AI Engineer">
+<meta property="og:description" content="LLMs, RAG, and agents that put pre-trained models to real work.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aqifahmed.com/">
 <meta property="og:image" content="https://aqifahmed.com/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0a0a0a">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0a0a'/%3E%3Ctext x='32' y='43' font-family='ui-monospace,Consolas,monospace' font-size='27' font-weight='600' letter-spacing='-1' fill='%23fafafa' text-anchor='middle'%3EAQ%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#0a0a08">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0a08'/%3E%3Ctext x='32' y='44' font-family='ui-monospace,Consolas,monospace' font-size='26' font-weight='600' fill='%23bef264' text-anchor='middle'%3E%3E_%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,13 +30,16 @@
 </head>
 <body>
 
+<div class="scroll-progress" aria-hidden="true"></div>
+
 <!-- ================= NAV ================= -->
 <header class="nav" id="nav">
-  <a href="#top" class="nav__mark">AQ<span class="nav__mark-dash">—</span>AH</a>
+  <a href="#top" class="nav__mark">aqif<span class="nav__mark-dash">@</span>ahmed</a>
   <nav class="nav__links" id="nav-links">
-    <a href="#work"><span class="nav__num">01</span>Work</a>
-    <a href="#projects"><span class="nav__num">02</span>Projects</a>
-    <a href="#contact"><span class="nav__num">03</span>Contact</a>
+    <a href="#now">~/now</a>
+    <a href="#projects">~/projects</a>
+    <a href="#skills">~/skills</a>
+    <a href="#contact">~/contact</a>
   </nav>
   <div class="nav__actions">
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme">
@@ -49,35 +52,38 @@
 </header>
 
 <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
-  <a href="#work"><span>01</span>Work</a>
-  <a href="#projects"><span>02</span>Projects</a>
-  <a href="#contact"><span>03</span>Contact</a>
+  <a href="#now">~/now</a>
+  <a href="#projects">~/projects</a>
+  <a href="#skills">~/skills</a>
+  <a href="#contact">~/contact</a>
 </div>
 
 <main id="top">
 
   <!-- ================= HERO ================= -->
   <section class="hero">
-    <div class="hero__meta load-fade">
-      <span class="hero__status"><span class="status-dot"></span>Open to automation &amp; developer roles</span>
-      <span class="hero__loc">Lahore, PK — UTC+5 <span id="local-time"></span></span>
-    </div>
-    <h1 class="hero__title">
-      <span class="line-mask"><span class="line">Automate the</span></span>
-      <span class="line-mask"><span class="line">boring <em>parts.</em></span></span>
-    </h1>
-    <div class="hero__bottom">
-      <p class="hero__lede load-fade">
-        I'm Aqif Ahmed — a Software Engineering graduate who builds
-        workflow automation. I write scripts and pipelines that take
-        repetitive manual work and make it repeatable: Python and
-        JavaScript for the logic, Docker Compose for the deployment,
-        PostgreSQL when it needs to store something.
-      </p>
-      <div class="hero__cta load-fade">
-        <a href="#work" class="btn btn--solid">How I work</a>
-        <a href="#contact" class="btn btn--line">Get in touch</a>
+    <div class="terminal load-fade" role="img" aria-label="Terminal window showing aqif ahmed's portfolio commands">
+      <div class="terminal__bar">
+        <span class="terminal__dot" aria-hidden="true"></span>
+        <span class="terminal__dot" aria-hidden="true"></span>
+        <span class="terminal__dot" aria-hidden="true"></span>
+        <span class="terminal__title">aqif@portfolio: ~</span>
       </div>
+      <div class="terminal__body">
+        <p class="term-line cmd"><span class="term-prompt">$</span> <span class="cmd-text">whoami</span></p>
+        <p class="term-line out">aqif ahmed — ai engineer · lahore, pk · utc+5 <span id="local-time"></span></p>
+        <p class="term-line cmd"><span class="term-prompt">$</span> <span class="cmd-text">cat about.txt</span></p>
+        <p class="term-line out">i build ai on top of pre-trained models. prompts, rag pipelines, agents that call tools. python for logic, vector dbs for memory, apis for hands and feet.</p>
+        <p class="term-line cmd"><span class="term-prompt">$</span> <span class="cmd-text">ls ./stack</span></p>
+        <p class="term-line out"><span class="hl">llms/</span> prompting/ rag/ agents/ mcp/ python/ fastapi/ docker/ postgres/</p>
+        <p class="term-line cmd"><span class="term-prompt">$</span> <span class="cmd-text">./status</span></p>
+        <p class="term-line out"><span class="hl">● open to ai engineering roles</span></p>
+        <p class="term-line cmd"><span class="term-prompt">$</span> <span class="cmd-text"><span class="cursor" aria-hidden="true"></span></span></p>
+      </div>
+    </div>
+    <div class="hero__cta load-fade">
+      <a href="#now" class="btn btn--solid">$ cd ~/now</a>
+      <a href="#contact" class="btn btn--line">$ ./contact</a>
     </div>
     <div class="hero__rule load-fade" aria-hidden="true">
       <span>SCROLL</span>
@@ -89,51 +95,34 @@
   <!-- ================= MARQUEE ================= -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee__track">
-      <span>Python</span><i>·</i><span>JavaScript</span><i>·</i><span>Docker Compose</span><i>·</i><span>FastAPI</span><i>·</i><span>PostgreSQL</span><i>·</i><span>Shell</span><i>·</i><span>REST APIs</span><i>·</i><span>React Native</span><i>·</i>
-      <span>Python</span><i>·</i><span>JavaScript</span><i>·</i><span>Docker Compose</span><i>·</i><span>FastAPI</span><i>·</i><span>PostgreSQL</span><i>·</i><span>Shell</span><i>·</i><span>REST APIs</span><i>·</i><span>React Native</span><i>·</i>
+      <span>llms/</span><i>·</i><span>prompting/</span><i>·</i><span>rag/</span><i>·</i><span>agents/</span><i>·</i><span>mcp/</span><i>·</i><span>embeddings/</span><i>·</i><span>vector-dbs/</span><i>·</i><span>python/</span><i>·</i>
+      <span>llms/</span><i>·</i><span>prompting/</span><i>·</i><span>rag/</span><i>·</i><span>agents/</span><i>·</i><span>mcp/</span><i>·</i><span>embeddings/</span><i>·</i><span>vector-dbs/</span><i>·</i><span>python/</span><i>·</i>
     </div>
   </div>
 
-  <!-- ================= WORK ================= -->
-  <section id="work" class="section">
+  <!-- ================= NOW ================= -->
+  <section id="now" class="section">
     <div class="section-head reveal">
-      <span class="section-eyebrow">01 — Approach</span>
-      <h2 class="section-title">Build the script,<br>then make it reliable.</h2>
-      <p class="section-sub">
-        A one-off script is a start. A workflow worth keeping runs the same
-        every time, survives failures, and doesn't need me to babysit it.
-      </p>
+      <span class="section-eyebrow">$ cat now.txt</span>
+      <h2 class="section-title">now</h2>
+      <p class="section-sub">Where I am, and where I'm pointed.</p>
     </div>
-    <div class="method-grid">
-      <div class="method-item reveal">
-        <span class="method-item__num">01</span>
-        <h3>Write the logic</h3>
-        <p>Python and JavaScript for parsing, transformations, and API integration — starting as a script, kept readable.</p>
+    <div class="file-block reveal">
+      <div class="file-row">
+        <span class="file-key">status</span>
+        <span class="file-val">open to ai engineering roles</span>
       </div>
-      <div class="method-item reveal">
-        <span class="method-item__num">02</span>
-        <h3>Make it repeatable</h3>
-        <p>Docker Compose pins the environment: same dependencies, same services, same result on any machine.</p>
+      <div class="file-row">
+        <span class="file-key">building</span>
+        <span class="file-val">invisiblesearch (live github search) · net zero (expense app)</span>
       </div>
-      <div class="method-item reveal">
-        <span class="method-item__num">03</span>
-        <h3>Give it a data layer</h3>
-        <p>PostgreSQL with a schema tuned for the queries the workflow actually runs — not a generic default.</p>
+      <div class="file-row">
+        <span class="file-key">learning</span>
+        <span class="file-val">roadmap.sh ai engineer path — llms → rag → agents → safety</span>
       </div>
-      <div class="method-item reveal">
-        <span class="method-item__num">04</span>
-        <h3>Handle failure</h3>
-        <p>Idempotent runs, clear errors, and sensible retry behavior — so a crash leaves the pipeline easy to resume.</p>
-      </div>
-      <div class="method-item reveal">
-        <span class="method-item__num">05</span>
-        <h3>Ship it</h3>
-        <p>Deployment stays simple: one command to bring the stack up, environment variables for anything that differs.</p>
-      </div>
-      <div class="method-item reveal">
-        <span class="method-item__num">06</span>
-        <h3>Maintain it</h3>
-        <p>Logs and metrics as first-class concerns. If a workflow breaks, the failure should be quick to find.</p>
+      <div class="file-row">
+        <span class="file-key">next</span>
+        <span class="file-val">ship an ai project with real retrieval, end to end</span>
       </div>
     </div>
   </section>
@@ -141,12 +130,9 @@
   <!-- ================= PROJECTS ================= -->
   <section id="projects" class="section">
     <div class="section-head reveal">
-      <span class="section-eyebrow">02 — Projects</span>
-      <h2 class="section-title">Shipped,<br>and still running.</h2>
-      <p class="section-sub">
-        Automation projects where the pipeline — ingestion, processing,
-        storage, deployment — mattered as much as the code.
-      </p>
+      <span class="section-eyebrow">$ ls -la ./projects</span>
+      <h2 class="section-title">projects</h2>
+      <p class="section-sub">The same fundamentals an AI product runs on: typed APIs, structured responses, caching, clean deploys.</p>
     </div>
 
     <!-- 01 InvisibleSearch -->
@@ -154,25 +140,26 @@
       <div class="system__index" aria-hidden="true">01</div>
       <div class="system__body">
         <header class="system__head">
-          <h3 class="system__title">InvisibleSearch</h3>
-          <span class="system__tag">Live GitHub search engine</span>
+          <h3 class="system__title">./InvisibleSearch</h3>
+          <span class="system__tag">live github search engine</span>
         </header>
         <p class="system__desc">
           A minimal search engine over all of GitHub, live. Queries proxy
           straight to the GitHub search index through a FastAPI backend —
-          no database, nothing to crawl or sync.
+          the same pattern an LLM app uses to call an external API and shape
+          its response.
         </p>
         <ul class="system__points">
-          <li>Built <code>/search</code> and <code>/suggest</code> endpoints that map GitHub API responses into typed, paginated results with a debounced, keyboard-navigable type-ahead.</li>
-          <li>Rate-limit aware by design: 60s in-memory cache per query, structured 429s with reset timestamps, and quota warnings surfaced in the UI.</li>
+          <li>Mapped raw API responses into typed, paginated results with a debounced, keyboard-navigable type-ahead — structured outputs, not loose JSON.</li>
+          <li>Rate-limit aware by design: a 60s per-query cache, structured 429s with reset timestamps, and quota warnings surfaced in the UI.</li>
           <li>Containerized with Docker Compose; pytest suite runs against a mocked GitHub client.</li>
         </ul>
         <div class="system__foot">
           <div class="chip-row">
-            <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">JavaScript</span><span class="chip">Docker Compose</span>
+            <span class="chip">[python]</span><span class="chip">[fastapi]</span><span class="chip">[javascript]</span><span class="chip">[docker]</span>
           </div>
-          <a href="https://invisiblesearch.aqifahmed.com" target="_blank" rel="noopener" class="system__metric">invisiblesearch.aqifahmed.com ↗</a>
-          <a href="https://github.com/AqifAhmed/InvisibleSearch" target="_blank" rel="noopener" class="system__metric">GitHub ↗</a>
+          <a href="https://invisiblesearch.aqifahmed.com" target="_blank" rel="noopener" class="system__metric">↗ live</a>
+          <a href="https://github.com/AqifAhmed/InvisibleSearch" target="_blank" rel="noopener" class="system__metric">↗ github</a>
         </div>
       </div>
     </article>
@@ -182,22 +169,23 @@
       <div class="system__index" aria-hidden="true">02</div>
       <div class="system__body">
         <header class="system__head">
-          <h3 class="system__title">Net Zero — Expense Tracker</h3>
-          <span class="system__tag">Cross-platform mobile app</span>
+          <h3 class="system__title">./NetZero</h3>
+          <span class="system__tag">cross-platform expense app</span>
         </header>
         <p class="system__desc">
-          A cross-platform mobile app for tracking expenses, built and
-          shipped with full offline capability and persistent local storage.
+          A cross-platform app for tracking expenses offline. A clean
+          exercise in state and structured data — the same discipline a
+          retrieval layer or agent memory needs.
         </p>
         <ul class="system__points">
-          <li>Works fully offline — every record persists in local storage, no connection required.</li>
-          <li>Designed around a central state layer and reusable components with input validation.</li>
+          <li>Every record persists in local storage with no connection required — offline-first by design.</li>
+          <li>Built around a central state layer and reusable components, with validation at the input boundary.</li>
         </ul>
         <div class="system__foot">
           <div class="chip-row">
-            <span class="chip">React Native</span><span class="chip">Expo</span><span class="chip">JavaScript</span>
+            <span class="chip">[react-native]</span><span class="chip">[expo]</span><span class="chip">[javascript]</span>
           </div>
-          <a href="https://netzero.aqifahmed.com" target="_blank" rel="noopener" class="system__metric">netzero.aqifahmed.com ↗</a>
+          <a href="https://netzero.aqifahmed.com" target="_blank" rel="noopener" class="system__metric">↗ live</a>
         </div>
       </div>
     </article>
@@ -205,80 +193,95 @@
 
   <!-- ================= SKILLS ================= -->
   <section id="skills" class="section section--tight">
-    <span class="section-eyebrow reveal">Technical skills</span>
-    <div class="stack-rows">
-      <div class="stack-row reveal">
-        <span class="stack-row__label">Languages</span>
-        <span class="stack-row__items">Python · JavaScript · Java · Shell scripting</span>
+    <div class="section-head reveal">
+      <span class="section-eyebrow">$ cat skills.txt</span>
+      <h2 class="section-title">skills</h2>
+    </div>
+    <div class="file-block reveal">
+      <div class="file-row">
+        <span class="file-key">[llms]</span>
+        <span class="file-val">pre-trained models · tokens / context / inference · model selection · closed vs open-source</span>
       </div>
-      <div class="stack-row reveal">
-        <span class="stack-row__label">Automation</span>
-        <span class="stack-row__items">Scripting &amp; cron-style jobs · API integration · Data parsing &amp; transformation · ETL-style pipelines</span>
+      <div class="file-row">
+        <span class="file-key">[prompting]</span>
+        <span class="file-val">system prompts · structured output · function calling · zero-shot / few-shot / chain-of-thought</span>
       </div>
-      <div class="stack-row reveal">
-        <span class="stack-row__label">Deployment</span>
-        <span class="stack-row__items">Docker · Docker Compose · Environment-driven configuration · Static hosting (GitHub Pages)</span>
+      <div class="file-row">
+        <span class="file-key">[rag]</span>
+        <span class="file-val">chunking · embeddings · semantic search · rag vs fine-tuning · langchain / llamaindex</span>
       </div>
-      <div class="stack-row reveal">
-        <span class="stack-row__label">Data</span>
-        <span class="stack-row__items">PostgreSQL (schema design, queries, indexing for fast lookups) · Local storage / SQLite</span>
+      <div class="file-row">
+        <span class="file-key">[agents]</span>
+        <span class="file-val">tools &amp; function calling · react prompting · multi-agent workflows · mcp servers / clients</span>
       </div>
-      <div class="stack-row reveal">
-        <span class="stack-row__label">Backend</span>
-        <span class="stack-row__items">REST APIs · FastAPI · Web scraping &amp; crawling</span>
+      <div class="file-row">
+        <span class="file-key">[data]</span>
+        <span class="file-val">chroma · pinecone · faiss · qdrant · postgresql · local storage</span>
       </div>
-      <div class="stack-row reveal">
-        <span class="stack-row__label">Tools</span>
-        <span class="stack-row__items">Git · GitHub · Command line utilities · Linux environment</span>
+      <div class="file-row">
+        <span class="file-key">[backend]</span>
+        <span class="file-val">python · fastapi · rest apis · docker compose · git · linux</span>
+      </div>
+      <div class="file-row">
+        <span class="file-key">[safety]</span>
+        <span class="file-val">prompt-injection defense · bias / fairness · adversarial testing · input / output constraints</span>
       </div>
     </div>
   </section>
 
   <!-- ================= EDUCATION ================= -->
   <section id="education" class="section section--tight">
-    <span class="section-eyebrow reveal">Education</span>
-    <div class="stack-rows">
-      <div class="stack-row reveal">
-        <span class="stack-row__label">Degree</span>
-        <span class="stack-row__items">BS Software Engineering — University of Central Punjab (UCP), Lahore</span>
+    <div class="section-head reveal">
+      <span class="section-eyebrow">$ cat education.txt</span>
+      <h2 class="section-title">education</h2>
+    </div>
+    <div class="file-block reveal">
+      <div class="file-row">
+        <span class="file-key">[degree]</span>
+        <span class="file-val">BS Software Engineering — University of Central Punjab (UCP), Lahore</span>
       </div>
-      <div class="stack-row reveal">
-        <span class="stack-row__label">Coursework</span>
-        <span class="stack-row__items">Data Structures &amp; Algorithms · Software Construction &amp; Design · Object-Oriented Programming · Advanced Web Programming · Applied Machine Learning · Formal Methods in Software Engineering</span>
+      <div class="file-row">
+        <span class="file-key">[coursework]</span>
+        <span class="file-val">DSA · Software Construction &amp; Design · OOP · Advanced Web Programming · Applied Machine Learning · Formal Methods</span>
       </div>
-      <div class="stack-row reveal">
-        <span class="stack-row__label">Languages</span>
-        <span class="stack-row__items">English (professional working proficiency) · Urdu (native)</span>
+      <div class="file-row">
+        <span class="file-key">[focus]</span>
+        <span class="file-val">AI Engineer — applying pre-trained models via LLMs, RAG, and agents (roadmap.sh)</span>
+      </div>
+      <div class="file-row">
+        <span class="file-key">[languages]</span>
+        <span class="file-val">English (professional) · Urdu (native)</span>
       </div>
     </div>
   </section>
 
   <!-- ================= CONTACT ================= -->
   <section id="contact" class="section section--contact">
-    <div class="reveal">
-      <span class="section-eyebrow">03 — Contact</span>
-      <h2 class="contact-title">
-        <span class="line-mask"><span class="line">Have a process worth</span></span>
-        <span class="line-mask"><span class="line">automating? <em>Let's talk.</em></span></span>
-      </h2>
-      <a href="mailto:aqifarain@gmail.com" class="contact-mail">aqifarain@gmail.com<span class="contact-mail__arrow">→</span></a>
+    <div class="section-head reveal">
+      <span class="section-eyebrow">$ ./contact.sh</span>
+      <h2 class="section-title">contact</h2>
+      <p class="section-sub">Have a model worth putting to work? Let's talk.</p>
     </div>
     <div class="contact-links reveal">
+      <a href="mailto:aqifarain@gmail.com" class="contact-link">
+        <span class="contact-link__label">[email]</span>
+        <span class="contact-link__value">aqifarain@gmail.com <span class="contact-link__arrow">→</span></span>
+      </a>
       <a href="https://x.com/aqifahmed_" target="_blank" rel="noopener" class="contact-link">
-        <span class="contact-link__label">X / Twitter</span>
-        <span class="contact-link__value">@aqifahmed_</span>
+        <span class="contact-link__label">[x]</span>
+        <span class="contact-link__value">@aqifahmed_ <span class="contact-link__arrow">→</span></span>
       </a>
       <a href="https://github.com/aqifahmed" target="_blank" rel="noopener" class="contact-link">
-        <span class="contact-link__label">GitHub</span>
-        <span class="contact-link__value">@aqifahmed</span>
+        <span class="contact-link__label">[github]</span>
+        <span class="contact-link__value">@aqifahmed <span class="contact-link__arrow">→</span></span>
       </a>
       <a href="https://linkedin.com/in/aqifahmed" target="_blank" rel="noopener" class="contact-link">
-        <span class="contact-link__label">LinkedIn</span>
-        <span class="contact-link__value">/in/aqifahmed</span>
+        <span class="contact-link__label">[linkedin]</span>
+        <span class="contact-link__value">/in/aqifahmed <span class="contact-link__arrow">→</span></span>
       </a>
       <a href="assets/AqifAhmed.pdf" class="contact-link" download>
-        <span class="contact-link__label">Résumé</span>
-        <span class="contact-link__value">Download PDF ↓</span>
+        <span class="contact-link__label">[resume]</span>
+        <span class="contact-link__value">download pdf <span class="contact-link__arrow">↓</span></span>
       </a>
     </div>
   </section>
@@ -286,9 +289,9 @@
 </main>
 
 <footer class="footer">
-  <span>© <span id="year"></span> Aqif Ahmed</span>
-  <span class="footer__note">Plain HTML / CSS / JS — no build step</span>
-  <a href="#top" class="footer__top">Back to top ↑</a>
+  <span>© <span id="year"></span> aqif ahmed</span>
+  <span class="footer__note">plain html / css / js — no build step</span>
+  <a href="#top" class="footer__top">cd ~</a>
 </footer>
 
 <script type="module" src="js/main.js"></script>

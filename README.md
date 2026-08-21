@@ -1,8 +1,8 @@
 # aqifahmed.com — portfolio
 
-Minimal, monochrome portfolio. Plain HTML / CSS / JS — no build step, no
-framework, no npm install. That's deliberate: GitHub Pages serves it as-is,
-and there's nothing to break.
+Minimal terminal/CLI-themed portfolio positioned for AI Engineer roles. Plain
+HTML / CSS / JS — no build step, no framework, no npm install. That's
+deliberate: GitHub Pages serves it as-is, and there's nothing to break.
 
 ## Structure
 
@@ -16,21 +16,26 @@ and there's nothing to break.
 
 ## Design
 
-- Strict black-and-white monochrome, light + dark themes (toggle in the nav,
-  respects system preference, persisted in `localStorage`).
-- Typeface: Geist + Geist Mono via Google Fonts.
-- Animations: hero line-reveal on load, IntersectionObserver scroll reveals,
-  marquee. All honor `prefers-reduced-motion`.
+- Terminal/CLI aesthetic: the hero is a terminal window with typed commands,
+  sections read like `$ cat <file>.txt`, nav links are `~/` paths.
+- Monochrome base with an acid-green accent, light + dark themes (toggle in the
+  nav, respects system preference, persisted in `localStorage`).
+- Typeface: Geist + Geist Mono, via Google Fonts.
+- Texture: faint film grain + a soft accent glow behind the hero.
+- Motion: terminal-typed commands on load, scroll progress bar, nav compaction,
+  magnetic CTAs, IntersectionObserver scroll reveals, marquee.
+  All honor `prefers-reduced-motion`.
 
 ## Editing content
 
 Everything is in `index.html`:
 
-- **Work** (`#work`) — the six-step approach (logic → repeatable → data → failure handling → ship → maintain).
-  Each is a `<div class="method-item">` block; copy one to add another.
+- **Now** (`#now`) — a `$ cat now.txt` status block: status / building / learning / next.
+  Each is a `.file-row`; copy one to add another.
 - **Projects** (`#projects`) — the featured builds. Each is an
   `<article class="system">` block; copy one to add another.
-- **Stack** (`#skills`) — the capability rows.
+- **Skills** (`#skills`) and **Education** (`#education`) — `$ cat <file>.txt`
+  blocks; each item is a `.file-row`.
 - **Contact** (`#contact`) — email + social links.
 
 You can edit directly in GitHub's web editor; Pages redeploys automatically
