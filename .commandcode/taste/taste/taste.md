@@ -1,0 +1,29 @@
+# Taste
+- Prefers plain, direct, engineer-level copy in his portfolio and writing — explicitly rejects "cringe" or marketing-style phrasing, hype, and slogans. Confidence: 0.8
+- Wants featured projects in his portfolio to include a link to the live site when one exists, in addition to the GitHub repo link. Confidence: 0.7
+- Expects supporting site assets (e.g., the Open Graph/social share image) to be updated in step with content changes, so the whole site stays consistent with the current positioning. Confidence: 0.6
+- Cares that social-sharing assets are actually optimized for their intended platform (e.g., og:image meeting LinkedIn's 1.91:1 preview ratio, staying under size limits, and using an absolute URL) rather than just existing. Confidence: 0.6
+- Insists the OG share image be pixel-precise in composition — the terminal panel must be visually centered with balanced margins on all sides (not pushed low or over-wide), and iterates until it is exactly right rather than accepting a "good enough" fix. Confidence: 0.7
+- Likes to visually verify web work by running it locally in the browser (e.g., serving the site with a static server and viewing it) rather than trusting the diff alone. Confidence: 0.5
+- Prefers a "GenZ but professional" visual style — wants more energy and personality in the design and finds strict monochrome/austere layouts too monotonous, while still wanting it to read as hireable and clean. Confidence: 0.7
+- Wants the site's written voice to be casual and grounded — confident but humble, not self-possessed or arrogant. Explicitly rejects GenZ slang, emoji, and exclamation points; "GenZ" energy should come from punchy, direct phrasing. Confidence: 0.7
+- Values purposeful, considered motion in web work beyond bare fade/scroll reveals — wants a coherent motion system (scroll progress, hover micro-interactions, text scrambles) that supports the content and honors prefers-reduced-motion. Confidence: 0.7
+- Reviews plan files and leaves inline comments/annotations with feedback, expecting the plan to be re-read and those comments incorporated before implementation. Confidence: 0.5
+- Wants the portfolio to clearly read as that of an engineer — the design and content should signal technical/engineering identity, not just look polished. When the design misses that mark he asks for a complete revamp rather than incremental tweaks. Confidence: 0.6
+- Favors a terminal/CLI aesthetic for an engineer's site — monospace type, `# Taste
+- Prefers plain, direct, engineer-level copy in his portfolio and writing — explicitly rejects "cringe" or marketing-style phrasing, hype, and slogans. Confidence: 0.8
+- Wants featured projects in his portfolio to include a link to the live site when one exists, in addition to the GitHub repo link. Confidence: 0.7
+- Expects supporting site assets (e.g., the Open Graph/social share image) to be updated in step with content changes, so the whole site stays consistent with the current positioning. Confidence: 0.6
+- Cares that social-sharing assets are actually optimized for their intended platform (e.g., og:image meeting LinkedIn's 1.91:1 preview ratio, staying under size limits, and using an absolute URL) rather than just existing. Confidence: 0.6
+- Likes to visually verify web work by running it locally in the browser (e.g., serving the site with a static server and viewing it) rather than trusting the diff alone. Confidence: 0.5
+- Prefers a "GenZ but professional" visual style — wants more energy and personality in the design and finds strict monochrome/austere layouts too monotonous, while still wanting it to read as hireable and clean. Confidence: 0.7
+- Wants the site's written voice to be casual and grounded — confident but humble, not self-possessed or arrogant. Explicitly rejects GenZ slang, emoji, and exclamation points; "GenZ" energy should come from punchy, direct phrasing. Confidence: 0.7
+- Values purposeful, considered motion in web work beyond bare fade/scroll reveals — wants a coherent motion system (scroll progress, hover micro-interactions, text scrambles) that supports the content and honors prefers-reduced-motion. Confidence: 0.7
+- Reviews plan files and leaves inline comments/annotations with feedback, expecting the plan to be re-read and those comments incorporated before implementation. Confidence: 0.5
+ command prompts, a terminal-window hero, and `cat`/command-output blocks for content sections — over more decorative or marketing-style designs. Confidence: 0.6
+- Dislikes plain list-style presentation of technical skills and education; wants those sections presented in a more considered/dynamic way rather than as flat bullet lists. Confidence: 0.5
+- Dislikes an abstract "Approach"/methodology section and prefers concrete, results- or skills-oriented sections on the site. Confidence: 0.5
+- Wants to surface quantified coding-practice progress on the portfolio (e.g., a NeetCode 150 completion-count card) as a signal of engineering rigor. Confidence: 0.6
+- Wants completed web work committed and pushed to GitHub (the repo's remote) rather than left sitting locally — treats committing+pushing as the natural end of a task. Confidence: 0.8
+- Keeps the site's "currently building" section focused on the single active project rather than listing every project he's worked on. Confidence: 0.6
+- Prefers the portfolio to stay portrait/photo-free — asked to add his profile image, then had it removed after seeing it because it didn't fit the design. Confidence: 0.5
