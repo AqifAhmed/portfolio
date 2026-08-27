@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,22 +11,16 @@
 <meta property="og:url" content="https://aqifahmed.com/">
 <meta property="og:image" content="https://aqifahmed.com/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0a0a08">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0a08'/%3E%3Ctext x='32' y='44' font-family='ui-monospace,Consolas,monospace' font-size='26' font-weight='600' fill='%23bef264' text-anchor='middle'%3E%3E_%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#0a0b09">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0b09'/%3E%3Ctext x='32' y='44' font-family='ui-monospace,Consolas,monospace' font-size='26' font-weight='600' fill='%23bef264' text-anchor='middle'%3E%3E_%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css">
-<script>
-  // Set theme before first paint to avoid flash
-  (function () {
-    var saved = localStorage.getItem('theme');
-    var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-    document.documentElement.setAttribute('data-theme', theme);
-  })();
-</script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/app.css">
 </head>
 <body>
 
@@ -37,14 +31,13 @@
   <a href="#top" class="nav__mark">aqif<span class="nav__mark-dash">@</span>ahmed</a>
   <nav class="nav__links" id="nav-links">
     <a href="#now">~/now</a>
+    <a href="#build">~/build</a>
+    <a href="#stack">~/stack</a>
     <a href="#projects">~/projects</a>
-    <a href="#skills">~/skills</a>
     <a href="#contact">~/contact</a>
   </nav>
   <div class="nav__actions">
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme">
-      <span class="theme-toggle__track"><span class="theme-toggle__thumb"></span></span>
-    </button>
+    <span class="nav__index">01 / 05</span>
     <button id="nav-burger" class="nav-burger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span>
     </button>
@@ -53,8 +46,9 @@
 
 <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
   <a href="#now">~/now</a>
+  <a href="#build">~/build</a>
+  <a href="#stack">~/stack</a>
   <a href="#projects">~/projects</a>
-  <a href="#skills">~/skills</a>
   <a href="#contact">~/contact</a>
 </div>
 
@@ -62,34 +56,62 @@
 
   <!-- ================= HERO ================= -->
   <section class="hero">
-    <div class="terminal load-fade" role="img" aria-label="Terminal window showing aqif ahmed's portfolio commands">
-      <div class="terminal__bar">
-        <span class="terminal__dot" aria-hidden="true"></span>
-        <span class="terminal__dot" aria-hidden="true"></span>
-        <span class="terminal__dot" aria-hidden="true"></span>
-        <span class="terminal__title">aqif@portfolio: ~</span>
+    <div class="hero__main">
+      <div class="terminal" role="img" aria-label="Terminal window showing aqif ahmed's portfolio commands">
+        <div class="terminal__bar">
+          <span class="terminal__dot" aria-hidden="true"></span>
+          <span class="terminal__dot" aria-hidden="true"></span>
+          <span class="terminal__dot" aria-hidden="true"></span>
+          <span class="terminal__title">aqif@portfolio: ~</span>
+        </div>
+        <div class="terminal__body">
+          <p class="term-line cmd"><span class="term-prompt">$</span> <span class="cmd-text">whoami</span></p>
+          <p class="term-line out">aqif ahmed — ai engineer · lahore, pk · utc+5 <span data-local-time></span></p>
+          <p class="term-line cmd"><span class="term-prompt">$</span> <span class="cmd-text">cat about.txt</span></p>
+          <p class="term-line out">i build ai on top of pre-trained models. prompts, rag pipelines, agents that call tools. python for logic, vector dbs for memory, apis for hands and feet.</p>
+          <p class="term-line cmd"><span class="term-prompt">$</span> <span class="cmd-text">ls ./stack</span></p>
+          <p class="term-line out"><span class="hl">llms/</span> prompting/ <span class="hl--cyan">rag/</span> agents/ mcp/ python/ fastapi/ docker/ postgres/</p>
+          <p class="term-line cmd"><span class="term-prompt">$</span> <span class="cmd-text">./status</span></p>
+          <p class="term-line out"><span class="hl">● open to ai engineering roles</span></p>
+          <p class="term-line cmd"><span class="term-prompt">$</span> <span class="cmd-text"><span class="cursor" aria-hidden="true"></span></span></p>
+        </div>
       </div>
-      <div class="terminal__body">
-        <p class="term-line cmd"><span class="term-prompt">$</span> <span class="cmd-text">whoami</span></p>
-        <p class="term-line out">aqif ahmed — ai engineer · lahore, pk · utc+5 <span id="local-time"></span></p>
-        <p class="term-line cmd"><span class="term-prompt">$</span> <span class="cmd-text">cat about.txt</span></p>
-        <p class="term-line out">i build ai on top of pre-trained models. prompts, rag pipelines, agents that call tools. python for logic, vector dbs for memory, apis for hands and feet.</p>
-        <p class="term-line cmd"><span class="term-prompt">$</span> <span class="cmd-text">ls ./stack</span></p>
-        <p class="term-line out"><span class="hl">llms/</span> prompting/ rag/ agents/ mcp/ python/ fastapi/ docker/ postgres/</p>
-        <p class="term-line cmd"><span class="term-prompt">$</span> <span class="cmd-text">./status</span></p>
-        <p class="term-line out"><span class="hl">● open to ai engineering roles</span></p>
-        <p class="term-line cmd"><span class="term-prompt">$</span> <span class="cmd-text"><span class="cursor" aria-hidden="true"></span></span></p>
+      <div class="hero__cta">
+        <a href="#build" class="btn btn--solid">$ cd ~/build</a>
+        <a href="#contact" class="btn btn--line">$ ./contact</a>
+      </div>
+      <div class="hero__rule" aria-hidden="true">
+        <span>SCROLL</span>
+        <span class="hero__rule-line"></span>
+        <span>01 / 05</span>
       </div>
     </div>
-    <div class="hero__cta load-fade">
-      <a href="#now" class="btn btn--solid">$ cd ~/now</a>
-      <a href="#contact" class="btn btn--line">$ ./contact</a>
-    </div>
-    <div class="hero__rule load-fade" aria-hidden="true">
-      <span>SCROLL</span>
-      <span class="hero__rule-line"></span>
-      <span>01 / 04</span>
-    </div>
+
+    <aside class="stat-rail" aria-label="Quick stats">
+      <div class="stat">
+        <span class="stat__label">status</span>
+        <span class="stat__value"><span class="stat__dot" aria-hidden="true"></span> open to work</span>
+      </div>
+      <div class="stat">
+        <span class="stat__label">local time · pk</span>
+        <span class="stat__value" data-local-time></span>
+      </div>
+      <div class="stat stat--ring">
+        <svg class="stat-ring" viewBox="0 0 40 40" role="img" aria-label="6 of 75 Blind 75 problems solved">
+          <circle class="stat-ring__track" cx="20" cy="20" r="15.9" pathLength="100"/>
+          <circle class="stat-ring__progress" cx="20" cy="20" r="15.9" pathLength="100" stroke-dasharray="100" stroke-dashoffset="92"/>
+        </svg>
+        <span class="stat__value">6/75<br><span class="stat__label">blind 75</span></span>
+      </div>
+      <div class="stat">
+        <span class="stat__label">projects shipped</span>
+        <span class="stat__value">2</span>
+      </div>
+      <div class="stat">
+        <span class="stat__label">curriculum domains</span>
+        <span class="stat__value">9</span>
+      </div>
+    </aside>
   </section>
 
   <!-- ================= MARQUEE ================= -->
@@ -103,35 +125,355 @@
   <!-- ================= NOW ================= -->
   <section id="now" class="section">
     <div class="section-head reveal">
-      <span class="section-eyebrow">$ cat now.txt</span>
-      <h2 class="section-title">now</h2>
+      <span class="section-eyebrow">cat now.txt</span>
+      <h2 class="section-title" data-scramble>now</h2>
       <p class="section-sub">Where I am, and where I'm pointed.</p>
     </div>
-    <div class="file-block reveal">
-      <div class="file-row">
-        <span class="file-key">status</span>
-        <span class="file-val">open to ai engineering roles</span>
+    <div class="now-list reveal">
+      <div class="now-row">
+        <span class="now-row__key">status</span>
+        <span class="now-row__val">open to ai engineering roles</span>
       </div>
-      <div class="file-row">
-        <span class="file-key">building</span>
-        <span class="file-val">invisiblesearch (live github search) · net zero (expense app)</span>
+      <div class="now-row">
+        <span class="now-row__key">building</span>
+        <span class="now-row__val">invisiblesearch — a live search engine over GitHub</span>
       </div>
-      <div class="file-row">
-        <span class="file-key">learning</span>
-        <span class="file-val">roadmap.sh ai engineer path — llms → rag → agents → safety</span>
+      <div class="now-row">
+        <span class="now-row__key">next</span>
+        <span class="now-row__val">ship an ai project with real retrieval, end to end</span>
       </div>
-      <div class="file-row">
-        <span class="file-key">next</span>
-        <span class="file-val">ship an ai project with real retrieval, end to end</span>
+    </div>
+  </section>
+
+  <!-- ================= BUILD ================= -->
+  <section id="build" class="section">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">./explain --how-i-build</span>
+      <h2 class="section-title" data-scramble>build</h2>
+      <p class="section-sub">The patterns behind an AI product, drawn out instead of listed. Retrieval, reasoning, and the space in between.</p>
+    </div>
+
+    <div class="build-grid reveal">
+      <!-- RAG pipeline -->
+      <div class="diagram diagram--wide pipeline" data-diagram>
+        <div class="diagram__head">
+          <span class="diagram__title">retrieval-augmented generation</span>
+          <span class="diagram__tag">cyan = retrieval · lime = generation</span>
+        </div>
+        <p class="diagram__desc">Documents get chunked and embedded once, up front. At query time, the same embedding model turns the question into a vector, pulls the closest chunks, and hands them to the model as context — so the answer is grounded in real text, not just what the model memorized.</p>
+        <div class="pipeline__scroll">
+          <div class="pipeline__row">
+            <span class="pipeline__packet" aria-hidden="true"></span>
+
+            <span class="pipeline__node" data-phase="ingest">docs</span>
+            <svg class="pipeline__arrow" data-phase="ingest" width="16" height="10" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5H14M14 5L9 1M14 5L9 9" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+            <span class="pipeline__node" data-phase="ingest">chunk</span>
+            <svg class="pipeline__arrow" data-phase="ingest" width="16" height="10" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5H14M14 5L9 1M14 5L9 9" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+            <span class="pipeline__node" data-phase="ingest">embed</span>
+            <svg class="pipeline__arrow" data-phase="ingest" width="16" height="10" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5H14M14 5L9 1M14 5L9 9" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+            <span class="pipeline__node" data-phase="ingest">vector store</span>
+            <svg class="pipeline__arrow" data-phase="ingest" width="16" height="10" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5H14M14 5L9 1M14 5L9 9" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+            <span class="pipeline__node" data-phase="ingest">top-k retrieve</span>
+            <svg class="pipeline__arrow" data-phase="generate" width="16" height="10" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5H14M14 5L9 1M14 5L9 9" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+            <span class="pipeline__node" data-phase="generate">prompt assembly</span>
+            <svg class="pipeline__arrow" data-phase="generate" width="16" height="10" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5H14M14 5L9 1M14 5L9 9" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+            <span class="pipeline__node" data-phase="generate">llm</span>
+            <svg class="pipeline__arrow" data-phase="generate" width="16" height="10" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5H14M14 5L9 1M14 5L9 9" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+            <span class="pipeline__node" data-phase="generate">structured output</span>
+          </div>
+        </div>
       </div>
+
+      <!-- Agent loop -->
+      <div class="diagram" data-diagram>
+        <div class="diagram__head">
+          <span class="diagram__title">agent loop — ReAct</span>
+          <span class="diagram__tag">think → act → observe</span>
+        </div>
+        <div class="loop">
+          <div class="loop__ring-wrap">
+            <svg class="loop__ring" viewBox="0 0 168 168" aria-hidden="true">
+              <defs>
+                <linearGradient id="loopGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="var(--lime)"/>
+                  <stop offset="100%" stop-color="var(--cyan)"/>
+                </linearGradient>
+              </defs>
+              <circle cx="84" cy="84" r="72"/>
+              <circle class="loop__progress" cx="84" cy="84" r="72" pathLength="100" stroke-dasharray="30 70" stroke="url(#loopGrad)"/>
+            </svg>
+            <span class="loop__label loop__label--think">think</span>
+            <span class="loop__label loop__label--act">act</span>
+            <span class="loop__label loop__label--observe">observe</span>
+          </div>
+          <div class="loop__tools">
+            <span class="loop__tool">search</span>
+            <span class="loop__tool">http</span>
+            <span class="loop__tool">db</span>
+            <span class="loop__tool">mcp</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Embedding space -->
+      <div class="diagram" data-diagram>
+        <div class="diagram__head">
+          <span class="diagram__title">embedding space</span>
+          <span class="diagram__tag">nearest-neighbor retrieval</span>
+        </div>
+        <svg viewBox="0 0 300 200" class="embed-plot" role="img" aria-label="Embedding space with a query point joined to its nearest neighbors">
+          <defs>
+            <radialGradient id="embedGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="var(--lime)" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="var(--lime)" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <line x1="150.0" y1="90.0" x2="171.9" y2="115.5" class="embed-plot__link"/>
+          <line x1="150.0" y1="90.0" x2="117.7" y2="107.2" class="embed-plot__link"/>
+          <line x1="150.0" y1="90.0" x2="152.0" y2="127.9" class="embed-plot__link"/>
+          <line x1="150.0" y1="90.0" x2="142.3" y2="128.5" class="embed-plot__link"/>
+          <circle cx="65.9" cy="63.2" r="2.6" class="embed-plot__dot embed-plot__dot--c0"/>
+          <circle cx="66.4" cy="50.0" r="2.6" class="embed-plot__dot embed-plot__dot--c0"/>
+          <circle cx="55.1" cy="51.6" r="2.6" class="embed-plot__dot embed-plot__dot--c0"/>
+          <circle cx="87.8" cy="61.8" r="2.6" class="embed-plot__dot embed-plot__dot--c0"/>
+          <circle cx="86.6" cy="59.0" r="2.6" class="embed-plot__dot embed-plot__dot--c0"/>
+          <circle cx="76.3" cy="58.0" r="2.6" class="embed-plot__dot embed-plot__dot--c0"/>
+          <circle cx="43.3" cy="68.7" r="2.6" class="embed-plot__dot embed-plot__dot--c0"/>
+          <circle cx="78.1" cy="63.0" r="2.6" class="embed-plot__dot embed-plot__dot--c0"/>
+          <circle cx="42.9" cy="27.1" r="2.6" class="embed-plot__dot embed-plot__dot--c0"/>
+          <circle cx="55.8" cy="47.5" r="2.6" class="embed-plot__dot embed-plot__dot--c0"/>
+          <circle cx="74.9" cy="54.3" r="2.6" class="embed-plot__dot embed-plot__dot--c0"/>
+          <circle cx="78.3" cy="44.7" r="2.6" class="embed-plot__dot embed-plot__dot--c0"/>
+          <circle cx="74.9" cy="61.3" r="2.6" class="embed-plot__dot embed-plot__dot--c0"/>
+          <circle cx="210.1" cy="75.8" r="2.6" class="embed-plot__dot embed-plot__dot--c1"/>
+          <circle cx="228.3" cy="68.0" r="2.6" class="embed-plot__dot embed-plot__dot--c1"/>
+          <circle cx="210.7" cy="38.9" r="2.6" class="embed-plot__dot embed-plot__dot--c1"/>
+          <circle cx="214.8" cy="48.4" r="2.6" class="embed-plot__dot embed-plot__dot--c1"/>
+          <circle cx="229.5" cy="53.7" r="2.6" class="embed-plot__dot embed-plot__dot--c1"/>
+          <circle cx="213.3" cy="35.6" r="2.6" class="embed-plot__dot embed-plot__dot--c1"/>
+          <circle cx="212.2" cy="68.3" r="2.6" class="embed-plot__dot embed-plot__dot--c1"/>
+          <circle cx="207.9" cy="53.7" r="2.6" class="embed-plot__dot embed-plot__dot--c1"/>
+          <circle cx="226.4" cy="27.7" r="2.6" class="embed-plot__dot embed-plot__dot--c1"/>
+          <circle cx="220.7" cy="69.6" r="2.6" class="embed-plot__dot embed-plot__dot--c1"/>
+          <circle cx="189.8" cy="45.2" r="2.6" class="embed-plot__dot embed-plot__dot--c1"/>
+          <circle cx="218.4" cy="37.7" r="2.6" class="embed-plot__dot embed-plot__dot--c1"/>
+          <circle cx="158.5" cy="148.9" r="2.6" class="embed-plot__dot embed-plot__dot--c2"/>
+          <circle cx="125.1" cy="164.1" r="2.6" class="embed-plot__dot embed-plot__dot--c2"/>
+          <circle cx="161.4" cy="166.1" r="2.6" class="embed-plot__dot embed-plot__dot--c2"/>
+          <circle cx="174.5" cy="156.2" r="2.6" class="embed-plot__dot embed-plot__dot--c2"/>
+          <circle cx="152.0" cy="127.9" r="2.6" class="embed-plot__dot embed-plot__dot--c2"/>
+          <circle cx="160.5" cy="139.6" r="2.6" class="embed-plot__dot embed-plot__dot--c2"/>
+          <circle cx="142.3" cy="128.5" r="2.6" class="embed-plot__dot embed-plot__dot--c2"/>
+          <circle cx="133.6" cy="141.0" r="2.6" class="embed-plot__dot embed-plot__dot--c2"/>
+          <circle cx="171.9" cy="115.5" r="2.6" class="embed-plot__dot embed-plot__dot--c2"/>
+          <circle cx="125.2" cy="154.1" r="2.6" class="embed-plot__dot embed-plot__dot--c2"/>
+          <circle cx="174.5" cy="159.8" r="2.6" class="embed-plot__dot embed-plot__dot--c2"/>
+          <circle cx="117.7" cy="107.2" r="2.6" class="embed-plot__dot embed-plot__dot--c2"/>
+          <circle cx="156.1" cy="137.5" r="2.6" class="embed-plot__dot embed-plot__dot--c2"/>
+          <circle cx="131.0" cy="166.6" r="2.6" class="embed-plot__dot embed-plot__dot--c2"/>
+          <text x="70" y="30" class="embed-plot__label">docs</text>
+          <text x="220" y="25" class="embed-plot__label">code</text>
+          <text x="150" y="178" class="embed-plot__label">chat</text>
+          <circle cx="150.0" cy="90.0" r="16" fill="url(#embedGlow)"/>
+          <circle cx="150.0" cy="90.0" r="4.2" class="embed-plot__query"/>
+          <text x="150.0" y="78.0" class="embed-plot__label embed-plot__label--query">query</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STACK ================= -->
+  <section id="stack" class="section">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">ls -la ./stack --curriculum</span>
+      <h2 class="section-title" data-scramble>stack</h2>
+      <p class="section-sub">What I've studied and used to build the two projects below, organized the way the field is actually structured. Tap a card for the full topic list.</p>
+    </div>
+
+    <div class="stack-grid reveal">
+      <button class="stack-card" aria-expanded="false">
+        <svg class="stack-card__glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 3L20 7.5V16.5L12 21L4 16.5V7.5L12 3Z" pathLength="40" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M4 7.5L12 12L20 7.5M12 12V21" pathLength="40" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+        <div class="stack-card__head">
+          <span class="stack-card__title">pre-trained models</span>
+          <span class="stack-card__count">6</span>
+        </div>
+        <div class="stack-card__detail-wrap">
+          <div class="stack-card__detail-inner">
+            <ul class="stack-card__chips">
+              <li>capabilities</li><li>context length</li><li>knowledge cutoff</li><li>inference vs training</li><li>open vs closed</li><li>model selection</li>
+            </ul>
+          </div>
+        </div>
+      </button>
+
+      <button class="stack-card" aria-expanded="false">
+        <svg class="stack-card__glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 5H20V19H4V5Z" pathLength="40" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M7 9L10 12L7 15M12 15H17" pathLength="40" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="stack-card__head">
+          <span class="stack-card__title">prompt engineering</span>
+          <span class="stack-card__count">7</span>
+        </div>
+        <div class="stack-card__detail-wrap">
+          <div class="stack-card__detail-inner">
+            <ul class="stack-card__chips">
+              <li>system prompts</li><li>zero/few-shot</li><li>chain-of-thought</li><li>ReAct</li><li>structured output</li><li>function calling</li><li>token budget &amp; cost</li>
+            </ul>
+          </div>
+        </div>
+      </button>
+
+      <button class="stack-card" aria-expanded="false">
+        <svg class="stack-card__glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="7" cy="8" r="1.6" pathLength="40" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="17" cy="7" r="1.6" pathLength="40" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="12" cy="17" r="1.6" pathLength="40" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M7 8L12 17M17 7L12 17" pathLength="40" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <div class="stack-card__head">
+          <span class="stack-card__title">embeddings &amp; vector search</span>
+          <span class="stack-card__count">10</span>
+        </div>
+        <div class="stack-card__detail-wrap">
+          <div class="stack-card__detail-inner">
+            <ul class="stack-card__chips">
+              <li>chunking</li><li>embedding models</li><li>semantic search</li><li>indexing</li><li>similarity search</li><li>Chroma</li><li>Pinecone</li><li>FAISS</li><li>Qdrant</li><li>pgvector</li>
+            </ul>
+          </div>
+        </div>
+      </button>
+
+      <button class="stack-card" aria-expanded="false">
+        <svg class="stack-card__glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M6 3H15V13H6V3Z" pathLength="40" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <circle cx="16" cy="16" r="4" pathLength="40" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M19 19L22 22" pathLength="40" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <div class="stack-card__head">
+          <span class="stack-card__title">RAG</span>
+          <span class="stack-card__count">7</span>
+        </div>
+        <div class="stack-card__detail-wrap">
+          <div class="stack-card__detail-inner">
+            <ul class="stack-card__chips">
+              <li>retrieve → augment → generate</li><li>chunking strategy</li><li>reranking</li><li>RAG vs fine-tuning</li><li>LangChain</li><li>LlamaIndex</li><li>retrieval eval</li>
+            </ul>
+          </div>
+        </div>
+      </button>
+
+      <button class="stack-card" aria-expanded="false">
+        <svg class="stack-card__glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="7" pathLength="40" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M12 5L15 8M15 8L11 8" pathLength="40" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="stack-card__head">
+          <span class="stack-card__title">agents &amp; tools</span>
+          <span class="stack-card__count">5</span>
+        </div>
+        <div class="stack-card__detail-wrap">
+          <div class="stack-card__detail-inner">
+            <ul class="stack-card__chips">
+              <li>tool / function calling</li><li>ReAct loops</li><li>multi-agent workflows</li><li>MCP servers &amp; clients</li><li>memory</li>
+            </ul>
+          </div>
+        </div>
+      </button>
+
+      <button class="stack-card" aria-expanded="false">
+        <svg class="stack-card__glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M2 12C4.5 7 8 5 12 5S19.5 7 22 12C19.5 17 16 19 12 19S4.5 17 2 12Z" pathLength="40" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <circle cx="12" cy="12" r="2.5" pathLength="40" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+        <div class="stack-card__head">
+          <span class="stack-card__title">multimodal</span>
+          <span class="stack-card__count">5</span>
+        </div>
+        <div class="stack-card__detail-wrap">
+          <div class="stack-card__detail-inner">
+            <ul class="stack-card__chips">
+              <li>vision</li><li>image generation</li><li>speech-to-text</li><li>text-to-speech</li><li>audio</li>
+            </ul>
+          </div>
+        </div>
+      </button>
+
+      <button class="stack-card" aria-expanded="false">
+        <svg class="stack-card__glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M6 3V11C6 14 9 14 12 14C15 14 18 14 18 11V3" pathLength="40" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="6" cy="3" r="1.6" pathLength="40" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="18" cy="3" r="1.6" pathLength="40" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="12" cy="19" r="1.6" pathLength="40" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M12 14V17.4" pathLength="40" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <div class="stack-card__head">
+          <span class="stack-card__title">open-source AI</span>
+          <span class="stack-card__count">5</span>
+        </div>
+        <div class="stack-card__detail-wrap">
+          <div class="stack-card__detail-inner">
+            <ul class="stack-card__chips">
+              <li>Hugging Face hub &amp; tasks</li><li>Transformers</li><li>Ollama</li><li>local inference</li><li>open vs closed tradeoffs</li>
+            </ul>
+          </div>
+        </div>
+      </button>
+
+      <button class="stack-card" aria-expanded="false">
+        <svg class="stack-card__glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 3L20 6V11C20 16 16.5 19.5 12 21C7.5 19.5 4 16 4 11V6L12 3Z" pathLength="40" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M8.5 12L11 14.5L16 9" pathLength="40" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="stack-card__head">
+          <span class="stack-card__title">safety &amp; evals</span>
+          <span class="stack-card__count">7</span>
+        </div>
+        <div class="stack-card__detail-wrap">
+          <div class="stack-card__detail-inner">
+            <ul class="stack-card__chips">
+              <li>prompt-injection defense</li><li>moderation</li><li>bias &amp; fairness</li><li>adversarial testing</li><li>constrained I/O</li><li>regression testing</li><li>observability</li>
+            </ul>
+          </div>
+        </div>
+      </button>
+
+      <button class="stack-card" aria-expanded="false">
+        <svg class="stack-card__glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M8 6L3 12L8 18" pathLength="40" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 6L21 12L16 18" pathLength="40" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M13 4L11 20" pathLength="40" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <div class="stack-card__head">
+          <span class="stack-card__title">engineering</span>
+          <span class="stack-card__count">7</span>
+        </div>
+        <div class="stack-card__detail-wrap">
+          <div class="stack-card__detail-inner">
+            <ul class="stack-card__chips">
+              <li>Python</li><li>FastAPI</li><li>typed APIs</li><li>Docker</li><li>Postgres</li><li>Git</li><li>Linux</li>
+            </ul>
+          </div>
+        </div>
+      </button>
     </div>
   </section>
 
   <!-- ================= PROJECTS ================= -->
   <section id="projects" class="section">
     <div class="section-head reveal">
-      <span class="section-eyebrow">$ ls -la ./projects</span>
-      <h2 class="section-title">projects</h2>
+      <span class="section-eyebrow">ls -la ./projects</span>
+      <h2 class="section-title" data-scramble>projects</h2>
       <p class="section-sub">The same fundamentals an AI product runs on: typed APIs, structured responses, caching, clean deploys.</p>
     </div>
 
@@ -149,6 +491,27 @@
           the same pattern an LLM app uses to call an external API and shape
           its response.
         </p>
+
+        <div class="schema" aria-hidden="true">
+          <div class="schema__row">
+            <span class="schema__node">browser</span>
+            <svg class="schema__arrow" width="14" height="9" viewBox="0 0 14 9"><path d="M0 4.5H12M12 4.5L8 1M12 4.5L8 8" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="schema__node">debounced query</span>
+            <svg class="schema__arrow" width="14" height="9" viewBox="0 0 14 9"><path d="M0 4.5H12M12 4.5L8 1M12 4.5L8 8" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="schema__node">FastAPI</span>
+            <svg class="schema__arrow" width="14" height="9" viewBox="0 0 14 9"><path d="M0 4.5H12M12 4.5L8 1M12 4.5L8 8" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="schema__node">60s cache</span>
+            <svg class="schema__arrow" width="14" height="9" viewBox="0 0 14 9"><path d="M0 4.5H12M12 4.5L8 1M12 4.5L8 8" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="schema__node">GitHub search API</span>
+            <svg class="schema__arrow" width="14" height="9" viewBox="0 0 14 9"><path d="M0 4.5H12M12 4.5L8 1M12 4.5L8 8" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="schema__node">typed results</span>
+          </div>
+          <div class="schema__branch">
+            <span class="schema__branch-line"></span>
+            <span class="schema__branch-node">429 · quota warning surfaced in UI</span>
+          </div>
+        </div>
+
         <ul class="system__points">
           <li>Mapped raw API responses into typed, paginated results with a debounced, keyboard-navigable type-ahead — structured outputs, not loose JSON.</li>
           <li>Rate-limit aware by design: a 60s per-query cache, structured 429s with reset timestamps, and quota warnings surfaced in the UI.</li>
@@ -158,8 +521,10 @@
           <div class="chip-row">
             <span class="chip">[python]</span><span class="chip">[fastapi]</span><span class="chip">[javascript]</span><span class="chip">[docker]</span>
           </div>
-          <a href="https://invisiblesearch.aqifahmed.com" target="_blank" rel="noopener" class="system__metric">↗ live</a>
-          <a href="https://github.com/AqifAhmed/InvisibleSearch" target="_blank" rel="noopener" class="system__metric">↗ github</a>
+          <div class="system__links">
+            <a href="https://invisiblesearch.aqifahmed.com" target="_blank" rel="noopener" class="system__metric">↗ live</a>
+            <a href="https://github.com/AqifAhmed/InvisibleSearch" target="_blank" rel="noopener" class="system__metric">↗ github</a>
+          </div>
         </div>
       </div>
     </article>
@@ -177,6 +542,20 @@
           exercise in state and structured data — the same discipline a
           retrieval layer or agent memory needs.
         </p>
+
+        <div class="schema schema--loop" aria-hidden="true">
+          <div class="schema__row">
+            <span class="schema__node">input</span>
+            <svg class="schema__arrow" width="14" height="9" viewBox="0 0 14 9"><path d="M0 4.5H12M12 4.5L8 1M12 4.5L8 8" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="schema__node">validate</span>
+            <svg class="schema__arrow" width="14" height="9" viewBox="0 0 14 9"><path d="M0 4.5H12M12 4.5L8 1M12 4.5L8 8" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="schema__node">central store</span>
+            <svg class="schema__arrow" width="14" height="9" viewBox="0 0 14 9"><path d="M0 4.5H12M12 4.5L8 1M12 4.5L8 8" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="schema__node">local storage</span>
+          </div>
+          <div class="schema__return">persists and reloads with no network round trip</div>
+        </div>
+
         <ul class="system__points">
           <li>Every record persists in local storage with no connection required — offline-first by design.</li>
           <li>Built around a central state layer and reusable components, with validation at the input boundary.</li>
@@ -185,72 +564,37 @@
           <div class="chip-row">
             <span class="chip">[react-native]</span><span class="chip">[expo]</span><span class="chip">[javascript]</span>
           </div>
-          <a href="https://netzero.aqifahmed.com" target="_blank" rel="noopener" class="system__metric">↗ live</a>
+          <div class="system__links">
+            <a href="https://netzero.aqifahmed.com" target="_blank" rel="noopener" class="system__metric">↗ live</a>
+            <a href="https://github.com/AqifAhmed/NetZero" target="_blank" rel="noopener" class="system__metric">↗ github</a>
+          </div>
         </div>
       </div>
     </article>
   </section>
 
-  <!-- ================= SKILLS ================= -->
-  <section id="skills" class="section section--tight">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">$ cat skills.txt</span>
-      <h2 class="section-title">skills</h2>
-    </div>
-    <div class="file-block reveal">
-      <div class="file-row">
-        <span class="file-key">[llms]</span>
-        <span class="file-val">pre-trained models · tokens / context / inference · model selection · closed vs open-source</span>
-      </div>
-      <div class="file-row">
-        <span class="file-key">[prompting]</span>
-        <span class="file-val">system prompts · structured output · function calling · zero-shot / few-shot / chain-of-thought</span>
-      </div>
-      <div class="file-row">
-        <span class="file-key">[rag]</span>
-        <span class="file-val">chunking · embeddings · semantic search · rag vs fine-tuning · langchain / llamaindex</span>
-      </div>
-      <div class="file-row">
-        <span class="file-key">[agents]</span>
-        <span class="file-val">tools &amp; function calling · react prompting · multi-agent workflows · mcp servers / clients</span>
-      </div>
-      <div class="file-row">
-        <span class="file-key">[data]</span>
-        <span class="file-val">chroma · pinecone · faiss · qdrant · postgresql · local storage</span>
-      </div>
-      <div class="file-row">
-        <span class="file-key">[backend]</span>
-        <span class="file-val">python · fastapi · rest apis · docker compose · git · linux</span>
-      </div>
-      <div class="file-row">
-        <span class="file-key">[safety]</span>
-        <span class="file-val">prompt-injection defense · bias / fairness · adversarial testing · input / output constraints</span>
-      </div>
-    </div>
-  </section>
-
   <!-- ================= EDUCATION ================= -->
   <section id="education" class="section section--tight">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">$ cat education.txt</span>
-      <h2 class="section-title">education</h2>
-    </div>
-    <div class="file-block reveal">
-      <div class="file-row">
-        <span class="file-key">[degree]</span>
-        <span class="file-val">BS Software Engineering — University of Central Punjab (UCP), Lahore</span>
+    <div class="edu-band reveal">
+      <div class="edu-col">
+        <div class="edu-row">
+          <span class="edu-row__key">degree</span>
+          <span class="edu-row__val">BS Software Engineering — University of Central Punjab (UCP), Lahore</span>
+        </div>
+        <div class="edu-row">
+          <span class="edu-row__key">coursework</span>
+          <span class="edu-row__val">DSA · System Design · Applied Machine Learning · Formal Methods</span>
+        </div>
       </div>
-      <div class="file-row">
-        <span class="file-key">[coursework]</span>
-        <span class="file-val">DSA · System Design · Applied Machine Learning · Formal Methods</span>
-      </div>
-      <div class="file-row">
-        <span class="file-key">[focus]</span>
-        <span class="file-val">AI Engineer — applying pre-trained models via LLMs, RAG, and agents (roadmap.sh)</span>
-      </div>
-      <div class="file-row">
-        <span class="file-key">[languages]</span>
-        <span class="file-val">English (professional) · Urdu (native)</span>
+      <div class="edu-col">
+        <div class="edu-row">
+          <span class="edu-row__key">focus</span>
+          <span class="edu-row__val">AI Engineer — applying pre-trained models via LLMs, RAG, and agents</span>
+        </div>
+        <div class="edu-row">
+          <span class="edu-row__key">languages</span>
+          <span class="edu-row__val">English (professional) · Urdu (native)</span>
+        </div>
       </div>
     </div>
   </section>
@@ -258,8 +602,8 @@
   <!-- ================= CONTACT ================= -->
   <section id="contact" class="section section--contact">
     <div class="section-head reveal">
-      <span class="section-eyebrow">$ ./contact.sh</span>
-      <h2 class="section-title">contact</h2>
+      <span class="section-eyebrow">./contact.sh</span>
+      <h2 class="section-title" data-scramble>contact</h2>
       <p class="section-sub">Have a model worth putting to work? Let's talk.</p>
     </div>
     <div class="contact-links reveal">
@@ -290,7 +634,6 @@
 
 <footer class="footer">
   <span>© <span id="year"></span> aqif ahmed</span>
-  <span class="footer__note">plain html / css / js — no build step</span>
   <a href="#top" class="footer__top">cd ~</a>
 </footer>
 

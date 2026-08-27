@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @font-face {
+    font-family: 'Geist Mono';
+    src: local('Geist Mono');
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1200px;
+    height: 630px;
+    background: #0a0b09;
+    overflow: hidden;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-family: 'Geist Mono', ui-monospace, Consolas, monospace;
+  }
+  body::before {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 620px; height: 620px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, #bef264 0%, transparent 62%);
+    opacity: 0.10;
+    filter: blur(40px);
+  }
+  .panel {
+    position: relative;
+    width: 860px;
+    border: 1px solid #2c3323;
+    border-radius: 14px;
+    background: #0f110d;
+    box-shadow: 0 30px 80px -30px rgba(0,0,0,0.7);
+    overflow: hidden;
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 20px;
+    background: #151810;
+    border-bottom: 1px solid #1e2318;
+  }
+  .dot { width: 13px; height: 13px; border-radius: 50%; background: #2c3323; }
+  .dot:nth-child(3) { background: #bef264; }
+  .title { margin-left: auto; font-size: 15px; letter-spacing: 0.06em; color: #5f6557; }
+  .body { padding: 30px 34px 38px; display: grid; gap: 11px; font-size: 20px; line-height: 1.6; }
+  .prompt { color: #bef264; font-weight: 600; }
+  .cmd { color: #f2f4ec; }
+  .out { color: #a3a89a; }
+  .hl { color: #bef264; font-weight: 600; }
+  .cyan { color: #67e8f9; }
+  .brand { position: absolute; bottom: 34px; right: 46px; font-size: 16px; color: #5f6557; letter-spacing: 0.08em; }
+  .brand b { color: #f2f4ec; }
+</style>
+</head>
+<body>
+  <div class="panel">
+    <div class="bar">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="title">aqif@portfolio: ~</span>
+    </div>
+    <div class="body">
+      <div><span class="prompt">$</span> <span class="cmd">whoami</span></div>
+      <div class="out">aqif ahmed — ai engineer · lahore, pk</div>
+      <div><span class="prompt">$</span> <span class="cmd">ls ./stack</span></div>
+      <div class="out"><span class="hl">llms/</span> prompting/ <span class="cyan">rag/</span> agents/ mcp/ python/ fastapi/</div>
+      <div><span class="prompt">$</span> <span class="cmd">./status</span></div>
+      <div class="hl">● open to ai engineering roles</div>
+    </div>
+  </div>
+  <div class="brand"><b>aqifahmed.com</b></div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: #111;
+    font-size: 10.5pt;
+    line-height: 1.45;
+    width: 780px;
+    margin: 0 auto;
+    padding: 36px 4px;
+  }
+  h1 { font-size: 18pt; text-align: center; letter-spacing: 0.01em; }
+  .contact { text-align: center; font-size: 9.5pt; color: #333; margin-top: 4px; }
+  .contact a { color: #333; text-decoration: none; }
+  h2 {
+    font-size: 10.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1.2px solid #111;
+    padding-bottom: 2px;
+    margin-top: 15px;
+    margin-bottom: 7px;
+  }
+  p { margin-bottom: 4px; }
+  ul { margin: 0 0 4px 18px; padding: 0; }
+  li { margin-bottom: 3px; }
+  .skill-row { margin-bottom: 4px; }
+  .skill-row b { font-weight: 600; }
+  .proj-head { display: flex; justify-content: space-between; align-items: baseline; margin-top: 6px; }
+  .proj-head .name { font-weight: 600; }
+  .proj-head .stack { font-style: italic; font-weight: 400; font-size: 9.5pt; color: #333; }
+  .proj-head .link { font-size: 9.5pt; }
+  .proj-head .link a { color: #111; }
+  .edu-degree { font-weight: 600; }
+  .edu-school { font-size: 10pt; }
+</style>
+</head>
+<body>
+  <h1>Aqif Ahmed</h1>
+  <p class="contact">Lahore, Pakistan &nbsp;|&nbsp; aqifarain@gmail.com &nbsp;|&nbsp; aqifahmed.com &nbsp;|&nbsp; linkedin.com/in/aqifahmed &nbsp;|&nbsp; github.com/aqifahmed</p>
+
+  <h2>Summary</h2>
+  <p>Software Engineering graduate building practical AI on top of pre-trained models — prompting, retrieval-augmented generation, and agents that call tools. Comfortable across the full stack an AI product needs: typed APIs, vector search, and clean deploys, not just the model call in the middle.</p>
+
+  <h2>Technical Skills</h2>
+  <div class="skill-row"><b>LLMs &amp; Prompting:</b> pre-trained model selection, context/inference tradeoffs, system prompts, zero/few-shot &amp; chain-of-thought, structured output, function calling</div>
+  <div class="skill-row"><b>RAG &amp; Retrieval:</b> chunking, embedding models, semantic search, RAG vs. fine-tuning, LangChain, LlamaIndex</div>
+  <div class="skill-row"><b>Vector Databases:</b> Chroma, Pinecone, FAISS, Qdrant, pgvector</div>
+  <div class="skill-row"><b>Agents &amp; Tools:</b> tool/function calling, ReAct loops, multi-agent workflows, MCP servers &amp; clients</div>
+  <div class="skill-row"><b>Safety &amp; Evaluation:</b> prompt-injection defense, bias &amp; fairness, adversarial testing, constrained I/O, observability</div>
+  <div class="skill-row"><b>Engineering:</b> Python, FastAPI, Docker, Docker Compose, PostgreSQL, Git, Linux, JavaScript, React Native</div>
+
+  <h2>Projects</h2>
+
+  <div class="proj-head">
+    <span class="name">InvisibleSearch</span>
+    <span class="stack">Python, FastAPI, JavaScript, Docker</span>
+    <span class="link"><a href="https://invisiblesearch.aqifahmed.com">invisiblesearch.aqifahmed.com</a></span>
+  </div>
+  <ul>
+    <li>Built a live search engine over GitHub: queries proxy through a FastAPI backend straight to the GitHub search index, the same pattern an LLM app uses to call an external API and shape its response.</li>
+    <li>Mapped raw API responses into typed, paginated results behind a debounced, keyboard-navigable type-ahead — structured outputs, not loose JSON.</li>
+    <li>Designed for GitHub's rate limits: a 60-second per-query cache, structured 429 responses with reset timestamps, and quota warnings surfaced in the UI.</li>
+    <li>Containerized with Docker Compose; pytest suite runs against a mocked GitHub client.</li>
+  </ul>
+
+  <div class="proj-head">
+    <span class="name">NetZero</span>
+    <span class="stack">React Native, Expo, JavaScript</span>
+    <span class="link"><a href="https://netzero.aqifahmed.com">netzero.aqifahmed.com</a></span>
+  </div>
+  <ul>
+    <li>Built and shipped a cross-platform expense-tracking app with full offline capability — every record persists in local storage, no connection required.</li>
+    <li>Built around a central state layer and reusable components, with validation at the input boundary — the same discipline a retrieval layer or agent memory needs.</li>
+  </ul>
+
+  <h2>Education</h2>
+  <p class="edu-degree">Bachelor of Science in Software Engineering</p>
+  <p class="edu-school">University of Central Punjab (UCP), Lahore</p>
+  <p><b>Relevant Coursework:</b> Data Structures &amp; Algorithms &middot; System Design &middot; Applied Machine Learning &middot; Formal Methods in Software Engineering &middot; Operating Systems &middot; Computer Communication Networks &middot; Software Construction &amp; Design &middot; Object-Oriented Programming &middot; Advanced Web Programming</p>
+
+  <h2>Additional</h2>
+  <p><b>Languages:</b> English (professional working proficiency), Urdu (native)</p>
+  <p><b>Location:</b> Based in Lahore; able to work on-site full time.</p>
+</body>
+</html>
