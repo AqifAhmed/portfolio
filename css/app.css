@@ -437,7 +437,7 @@
 .loop { display: flex; align-items: center; gap: var(--s3); flex-wrap: wrap; }
 .loop__ring-wrap { position: relative; width: 168px; height: 168px; flex-shrink: 0; }
 .loop__ring { width: 100%; height: 100%; }
-.loop__ring circle:first-child { fill: none; stroke: var(--line-2); stroke-width: 2; }
+.loop__ring circle:first-of-type { fill: none; stroke: var(--line-2); stroke-width: 2; }
 .loop__progress { fill: none; stroke-width: 2; stroke-linecap: round; }
 .diagram.is-active .loop__progress { animation: loop-spin 4.5s linear infinite; }
 @keyframes loop-spin { to { stroke-dashoffset: -100; } }
@@ -686,7 +686,7 @@
    RESPONSIVE
    ========================================================================== */
 @media (max-width: 980px) {
-  .hero { grid-template-columns: minmax(0, 1fr); }
+  .hero { grid-template-columns: minmax(0, 1fr); padding-top: calc(64px + var(--s3)); }
   .stat-rail { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: var(--s3); flex-direction: row; flex-wrap: wrap; gap: var(--s3) var(--s4); }
   .build-grid { grid-template-columns: minmax(0, 1fr); }
   .stack-grid { grid-template-columns: repeat(2, 1fr); }
