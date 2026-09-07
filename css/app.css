@@ -453,9 +453,9 @@
   transform: translate(-50%, -50%);
   white-space: nowrap;
 }
-.loop__label--think { top: -2%; left: 50%; color: var(--lime); }
-.loop__label--act { bottom: 4%; left: 92%; }
-.loop__label--observe { bottom: 4%; left: 8%; color: var(--cyan); }
+.loop__label--think { top: 7.14%; left: 50%; color: var(--lime); }
+.loop__label--act { top: 71.43%; left: 87.1%; }
+.loop__label--observe { top: 71.43%; left: 12.9%; color: var(--cyan); }
 
 .loop__tools { display: grid; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.78rem; }
 .loop__tool {
@@ -469,16 +469,51 @@
 }
 .loop__tool::before { content: "◆"; font-size: 0.6em; color: var(--cyan); }
 
-/* embedding plot */
-.embed-plot { width: 100%; height: auto; }
-.embed-plot__dot { fill: var(--line-2); }
-.diagram.is-active .embed-plot__dot { fill: var(--ink-3); transition: fill 600ms var(--ease); }
-.embed-plot__query { fill: var(--lime); }
-.embed-plot__link { stroke: var(--cyan); stroke-width: 1; stroke-dasharray: 3 3; opacity: 0; }
-.diagram.is-active .embed-plot__link { animation: link-in 900ms var(--ease) 300ms forwards; }
-@keyframes link-in { to { opacity: 0.6; } }
-.embed-plot__label { fill: var(--ink-3); font-size: 9px; font-family: var(--font-mono); text-anchor: middle; }
-.embed-plot__label--query { fill: var(--lime); font-weight: 500; }
+/* similarity ranking */
+.rank { display: flex; flex-direction: column; gap: var(--s2); }
+.rank__query {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ink);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  background: var(--bg-2);
+}
+.rank__query-label { color: var(--lime); margin-right: 0.6em; }
+.rank__list { display: flex; flex-direction: column; gap: 0.55rem; }
+.rank__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(70px, 30%) 2.6em;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+}
+.rank__doc { color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rank__bar-track { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.rank__bar {
+  height: 100%;
+  width: 0;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--cyan), var(--lime));
+  transition: width 900ms var(--ease);
+}
+.diagram.is-active .rank__bar { width: calc(var(--score) * 100%); }
+.rank__row:nth-child(2) .rank__bar { transition-delay: 90ms; }
+.rank__row:nth-child(3) .rank__bar { transition-delay: 180ms; }
+.rank__row:nth-child(4) .rank__bar { transition-delay: 270ms; }
+.rank__score { color: var(--ink-3); text-align: right; }
+.rank__row--cut { opacity: 0.45; }
+.rank__row--cut .rank__bar { background: var(--line-2); }
+.rank__cutoff {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--line-2);
+}
 
 /* ==========================================================================
    STACK — bento grid
@@ -715,4 +750,13 @@
   .now-row { flex-direction: column; gap: 0.15rem; }
 
   .contact-links { grid-template-columns: minmax(0, 1fr); }
+
+  /* stack node chains vertically so nothing needs horizontal scrolling */
+  .pipeline__scroll { overflow-x: visible; }
+  .pipeline__row { flex-direction: column; align-items: flex-start; min-width: 0; padding: 0.5rem 0.25rem; }
+  .pipeline__packet { display: none; }
+  .schema { overflow-x: visible; }
+  .schema__row { flex-direction: column; align-items: flex-start; min-width: 0; }
+  .pipeline__arrow, .schema__arrow { transform: rotate(90deg); margin: 0.15rem 0 0.15rem 0.6rem; }
+  .schema__branch, .schema__return { margin-left: 0.6rem; }
 }
