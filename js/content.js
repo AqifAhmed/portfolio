@@ -48,6 +48,14 @@ export const content = {
   // Reverse-chronological. Newest first. See CONTENT.md for the template.
   logEntries: [
     {
+      date: '2026-08-16',
+      title: 'Closed out NetZero',
+      body: "Shifted NetZero's UI to a new theme, then spent a session cleaning up the README: fixed a formatting issue and bumped the screenshot sizes so the project reads clearly to anyone landing on the repo cold. That was the last commit — no feature work planned from here, focus has moved to inference-bench.",
+      link: '',
+      projectId: 'netzero',
+      status: 'shipped',
+    },
+    {
       date: '2026-09-08',
       title: 'Rebuilt the site around one content file, added a status gate',
       body: "Pulled every piece of content out of index.html into js/content.js and rewrote the renderer around a hard status gate: anything marked 'planned' never reaches the page, and there is no flag or query parameter that overrides it. Deleted the 9-domain curriculum grid and the generic RAG / agent-loop / similarity diagrams that implied hands-on experience I don't have yet — the ~/stack section now only lists technologies that a shipped project actually used, and ~/build stays empty until a shipped project justifies a diagram. This log is the new source of truth for what's actually happening, in order, as it happens.",

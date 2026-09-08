@@ -22,6 +22,7 @@ const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 export function initSectionAwareness() {
   const navLinks = [...document.querySelectorAll('.nav__links a, .mobile-menu a')];
   const railSection = document.getElementById('rail-section');
+  const mobileRailSection = document.getElementById('mobile-rail-section');
   if (!navLinks.length) return;
 
   const sections = navLinks
@@ -33,6 +34,7 @@ export function initSectionAwareness() {
   const setActive = (id) => {
     navLinks.forEach((a) => a.classList.toggle('is-active', a.getAttribute('href') === `#${id}`));
     if (railSection) railSection.textContent = id;
+    if (mobileRailSection) mobileRailSection.textContent = id;
   };
 
   const io = new IntersectionObserver(

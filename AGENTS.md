@@ -25,8 +25,12 @@ portfolio. Concretely:
 - Layout: a persistent left rail (`.rail`) holding four fields — Subject,
   Status, Section, Reading — that together replace what used to be three
   separate systems (a nav index counter, a scroll-progress bar, and a
-  sidebar stat block). Projects and the stack render as spec tables, not
-  cards.
+  sidebar stat block). Below the 960px sidebar breakpoint, `.rail` becomes a
+  top-of-page strip and would otherwise scroll out of view, so `.mobile-rail`
+  (a slim sticky strip showing just the live "Section" field) takes over
+  persistence on small screens — both are updated together by
+  `initSectionAwareness()`. Projects and the stack render as spec tables,
+  not cards.
 - Motion budget, exactly two moments, both in `js/motion.js`:
   `initSectionAwareness()` (the rail's Section field and the nav's
   active-link state track scroll position) and `initValueSettle()` (a
