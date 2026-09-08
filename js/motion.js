@@ -1,111 +1,86 @@
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* Scroll reveal — staggers siblings that enter together */
-export function initReveal() {
-  const els = document.querySelectorAll('.reveal');
+/* ==========================================================================
+   Motion budget: two moments, both tied to the report/instrumentation
+   concept, not decoration.
+
+   1. initSectionAwareness — the rail's "Section" field and the nav's
+      active-link state track scroll position. This is the site's only
+      wayfinding mechanism; it replaces what used to be a nav index counter
+      and a separate scroll-progress bar.
+   2. initValueSettle — a measured number (a project's `numbers` entry)
+      counts up to its value once, the first time it scrolls into view, like
+      an instrument settling on a reading. It only fires where a real
+      measured number exists.
+
+   Everything else that used to live here (scroll reveal, a live clock, a
+   scroll-progress bar, terminal typing, a title scramble, a pointer-tracked
+   glow, stack-card expand) was ambient decoration unrelated to the site's
+   subject matter and has been deleted, not disabled.
+   ========================================================================== */
+
+export function initSectionAwareness() {
+  const navLinks = [...document.querySelectorAll('.nav__links a, .mobile-menu a')];
+  const railSection = document.getElementById('rail-section');
+  if (!navLinks.length) return;
+
+  const sections = navLinks
+    .map((a) => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+  const uniqueSections = [...new Set(sections)];
+  if (!uniqueSections.length) return;
+
+  const setActive = (id) => {
+    navLinks.forEach((a) => a.classList.toggle('is-active', a.getAttribute('href') === `#${id}`));
+    if (railSection) railSection.textContent = id;
+  };
+
   const io = new IntersectionObserver(
     (entries) => {
-      let stagger = 0;
-      for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
-        entry.target.style.setProperty('--reveal-delay', `${stagger * 90}ms`);
-        entry.target.classList.add('is-visible');
-        io.unobserve(entry.target);
-        stagger++;
-      }
+      const visible = entries.filter((e) => e.isIntersecting);
+      if (visible.length) setActive(visible[0].target.id);
     },
-    { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }
+    { rootMargin: '-40% 0px -50% 0px', threshold: 0 }
   );
-  els.forEach((el) => io.observe(el));
+  uniqueSections.forEach((s) => io.observe(s));
 }
 
-/* Local time (UTC+5) — used in the terminal header and the stat rail */
-export function initClock() {
-  const els = document.querySelectorAll('[data-local-time]');
+export function initValueSettle() {
+  const els = document.querySelectorAll('.project__number');
   if (!els.length) return;
-  const tick = () => {
-    const text = new Intl.DateTimeFormat('en-GB', {
-      hour: '2-digit',
-      minute: '2-digit',
-      timeZone: 'Asia/Karachi',
-    }).format(new Date());
-    els.forEach((el) => (el.textContent = text));
-  };
-  tick();
-  setInterval(tick, 30_000);
-}
 
-/* Scroll progress bar — fills 0→100% as you scroll */
-export function initScrollProgress() {
-  const bar = document.querySelector('.scroll-progress');
-  if (!bar || REDUCED) return;
-
-  const update = () => {
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    const p = max > 0 ? window.scrollY / max : 0;
-    bar.style.transform = `scaleX(${Math.min(1, Math.max(0, p))})`;
-  };
-
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      update();
-      ticking = false;
-    });
-  }, { passive: true });
-  update();
-}
-
-/* Terminal typing — types each command left-to-right, staggered */
-export function initTyping() {
-  const cmds = document.querySelectorAll('.terminal .cmd-text');
-  if (!cmds.length || REDUCED) return;
-
-  const charsPerTick = 2;
-  const tickMs = 30;
-  const cmdDelay = 500;
-
-  cmds.forEach((el, i) => {
-    const full = el.textContent;
-    el.textContent = '';
-    let idx = 0;
-    const startAt = performance.now() + 600 + i * cmdDelay;
-
-    const tick = (now) => {
-      const t = (now - startAt) / tickMs;
-      if (t < 0) return requestAnimationFrame(tick);
-      idx = Math.min(full.length, Math.floor(t) * charsPerTick);
-      el.textContent = full.slice(0, idx);
-      if (idx < full.length) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  });
-}
-
-/* Section-title scramble — resolves to the real text as it enters view */
-export function initScramble() {
-  const els = document.querySelectorAll('[data-scramble]');
-  if (!els.length || REDUCED) return;
-
-  const chars = 'abcdefghijklmnopqrstuvwxyz#_/-';
-  const rand = (n) => Array.from({ length: n }, () => chars[(Math.random() * chars.length) | 0]).join('');
+  // Picks the number that reads as the measured value out of a free-form
+  // string like "p95 latency 340ms" or "$0.42 per 1M tokens" or "recall@5 =
+  // 0.81". Numbers glued to a preceding letter or "@" are index/label noise
+  // ("p95", "recall@5"), not the reading — skip those. Among what's left,
+  // prefer a decimal (a measurement is more often "0.81" than a bare "5").
+  function pickReading(text) {
+    const candidates = [...text.matchAll(/(?<![a-zA-Z0-9@])-?\d+(\.\d+)?/g)];
+    if (!candidates.length) return null;
+    return candidates.find((m) => m[0].includes('.')) || candidates[0];
+  }
 
   const run = (el) => {
     const full = el.textContent;
-    const len = full.length;
-    let frame = 0;
-    const totalFrames = 14;
+    const match = pickReading(full);
+    if (!match || REDUCED) return;
 
-    const step = () => {
-      frame++;
-      const revealCount = Math.floor((frame / totalFrames) * len);
-      el.textContent = full.slice(0, revealCount) + rand(Math.max(0, len - revealCount));
-      if (frame < totalFrames) requestAnimationFrame(step);
+    const target = parseFloat(match[0]);
+    const prefix = full.slice(0, match.index);
+    const suffix = full.slice(match.index + match[0].length);
+    const decimals = match[0].includes('.') ? match[0].split('.')[1].length : 0;
+    const duration = 500;
+    const start = performance.now();
+
+    const tick = (now) => {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const current = (target * eased).toFixed(decimals);
+      el.textContent = `${prefix}${current}${suffix}`;
+      if (t < 1) requestAnimationFrame(tick);
       else el.textContent = full;
     };
-    requestAnimationFrame(step);
+    requestAnimationFrame(tick);
   };
 
   const io = new IntersectionObserver(
@@ -116,30 +91,7 @@ export function initScramble() {
         io.unobserve(entry.target);
       }
     },
-    { threshold: 0.4 }
+    { threshold: 0.6 }
   );
   els.forEach((el) => io.observe(el));
-}
-
-/* Pointer-tracked glow on the hero terminal panel */
-export function initTerminalGlow() {
-  if (REDUCED || window.matchMedia('(pointer: coarse)').matches) return;
-  const terminal = document.querySelector('.terminal');
-  if (!terminal) return;
-  terminal.addEventListener('pointermove', (e) => {
-    const r = terminal.getBoundingClientRect();
-    terminal.style.setProperty('--gx', `${e.clientX - r.left}px`);
-    terminal.style.setProperty('--gy', `${e.clientY - r.top}px`);
-  });
-}
-
-/* Stack bento cards — click to expand curriculum detail */
-export function initStackCards() {
-  const cards = document.querySelectorAll('.stack-card');
-  cards.forEach((card) => {
-    card.addEventListener('click', () => {
-      const open = card.getAttribute('aria-expanded') === 'true';
-      card.setAttribute('aria-expanded', String(!open));
-    });
-  });
 }

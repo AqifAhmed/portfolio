@@ -3,79 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <style>
-  @font-face {
-    font-family: 'Geist Mono';
-    src: local('Geist Mono');
-  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
     width: 1200px;
     height: 630px;
-    background: #0a0b09;
+    background: #E7E4DC;
     overflow: hidden;
   }
   body {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    font-family: 'Geist Mono', ui-monospace, Consolas, monospace;
+    padding: 64px;
+    font-family: 'Source Serif 4', Georgia, serif;
+    color: #1B1B18;
   }
-  body::before {
-    content: "";
-    position: absolute;
-    top: 50%; left: 50%;
-    width: 620px; height: 620px;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(circle, #bef264 0%, transparent 62%);
-    opacity: 0.10;
-    filter: blur(40px);
-  }
-  .panel {
-    position: relative;
-    width: 860px;
-    border: 1px solid #2c3323;
-    border-radius: 14px;
-    background: #0f110d;
-    box-shadow: 0 30px 80px -30px rgba(0,0,0,0.7);
-    overflow: hidden;
-  }
-  .bar {
+  .rail {
+    width: 260px;
+    flex-shrink: 0;
+    border-right: 1px solid #C9C4B6;
+    padding-right: 32px;
+    font-family: 'Martian Mono', monospace;
     display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 16px 20px;
-    background: #151810;
-    border-bottom: 1px solid #1e2318;
+    flex-direction: column;
+    gap: 28px;
   }
-  .dot { width: 13px; height: 13px; border-radius: 50%; background: #2c3323; }
-  .dot:nth-child(3) { background: #bef264; }
-  .title { margin-left: auto; font-size: 15px; letter-spacing: 0.06em; color: #5f6557; }
-  .body { padding: 30px 34px 38px; display: grid; gap: 11px; font-size: 20px; line-height: 1.6; }
-  .prompt { color: #bef264; font-weight: 600; }
-  .cmd { color: #f2f4ec; }
-  .out { color: #a3a89a; }
-  .hl { color: #bef264; font-weight: 600; }
-  .cyan { color: #67e8f9; }
-  .brand { position: absolute; bottom: 34px; right: 46px; font-size: 16px; color: #5f6557; letter-spacing: 0.08em; }
-  .brand b { color: #f2f4ec; }
+  .field label { display: block; font-size: 13px; color: #7A766A; margin-bottom: 6px; }
+  .field span { font-size: 15px; color: #1B1B18; }
+  .field.reading span { color: #A6531C; }
+  .main { padding-left: 48px; display: flex; flex-direction: column; justify-content: center; }
+  h1 { font-size: 56px; font-weight: 600; letter-spacing: -0.01em; }
+  p.role { font-family: 'Martian Mono', monospace; font-size: 20px; color: #4A473E; margin-top: 14px; }
+  p.about { font-size: 22px; line-height: 1.5; color: #1B1B18; margin-top: 24px; max-width: 620px; }
 </style>
 </head>
 <body>
-  <div class="panel">
-    <div class="bar">
-      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      <span class="title">aqif@portfolio: ~</span>
-    </div>
-    <div class="body">
-      <div><span class="prompt">$</span> <span class="cmd">whoami</span></div>
-      <div class="out">aqif ahmed — ai engineer · lahore, pk</div>
-      <div><span class="prompt">$</span> <span class="cmd">ls ./stack</span></div>
-      <div class="out"><span class="hl">llms/</span> prompting/ <span class="cyan">rag/</span> agents/ mcp/ python/ fastapi/</div>
-      <div><span class="prompt">$</span> <span class="cmd">./status</span></div>
-      <div class="hl">● open to ai engineering roles</div>
-    </div>
+  <div class="rail">
+    <div class="field"><label>Subject</label><span>backend &amp; infrastructure engineer</span></div>
+    <div class="field"><label>Status</label><span>open to work</span></div>
+    <div class="field reading"><label>Reading</label><span>2 shipped</span></div>
   </div>
-  <div class="brand"><b>aqifahmed.com</b></div>
+  <div class="main">
+    <h1>Aqif Ahmed</h1>
+    <p class="role">backend &amp; infrastructure engineer, lahore</p>
+    <p class="about">I measure systems and write down what I find.</p>
+  </div>
 </body>
 </html>
