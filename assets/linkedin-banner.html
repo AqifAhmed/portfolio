@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1584px;
+    height: 396px;
+    background: #1C1A16;
+    overflow: hidden;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    font-family: 'Source Serif 4', Georgia, serif;
+    color: #EDEAE2;
+  }
+  /* LinkedIn overlays the circular profile photo across roughly this
+     bottom-left region (desktop layout) — keep it, and a margin past it,
+     clear of content. Mobile crops the top/bottom more tightly than the
+     sides, so everything below is vertically centered as one flex row
+     rather than pinned to a corner. */
+  .safe-spacer { width: 420px; flex-shrink: 0; position: relative; height: 100%; }
+  .safe-spacer::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 48px;
+    bottom: 48px;
+    width: 1px;
+    background: #38352F;
+  }
+  .row {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding-right: 72px;
+  }
+  .main { padding-left: 56px; }
+  .field-label {
+    display: block;
+    font-family: 'Martian Mono', monospace;
+    font-size: 15px;
+    color: #9E9A8B;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-size: 58px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  p.role {
+    font-family: 'Martian Mono', monospace;
+    font-size: 20px;
+    color: #B8B3A6;
+    margin-top: 14px;
+  }
+  p.about {
+    font-size: 21px;
+    line-height: 1.5;
+    color: #EDEAE2;
+    margin-top: 20px;
+    max-width: 620px;
+  }
+  .status {
+    flex-shrink: 0;
+    text-align: right;
+    font-family: 'Martian Mono', monospace;
+  }
+  .status label { display: block; font-size: 13px; color: #9E9A8B; margin-bottom: 6px; }
+  .status span { font-size: 15px; color: #DD8A5C; }
+</style>
+</head>
+<body>
+  <div class="safe-spacer"></div>
+  <div class="row">
+    <div class="main">
+      <span class="field-label">Subject</span>
+      <h1>Aqif Ahmed</h1>
+      <p class="role">backend &amp; infrastructure engineer, lahore</p>
+      <p class="about">I measure systems and write down what I find.</p>
+    </div>
+    <div class="status">
+      <label>Status</label>
+      <span>open to work</span>
+    </div>
+  </div>
+</body>
+</html>
