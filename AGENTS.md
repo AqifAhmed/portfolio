@@ -15,10 +15,14 @@ The current visual system is **"Test Report"**: the page presents as the
 datasheet stapled to a piece of benchmarked hardware, not a hacker-terminal
 portfolio. Concretely:
 
-- Palette: paper and ink (`--bg`/`--ink` in `css/tokens.css`), plus two
-  accents — `--reading` (a measured value, or a primary action) and
-  `--verified` (shipped / in good standing). No near-black-and-lime, no
-  gradient glow, no drop shadows. Flat, ruled, printed-document-flat.
+- Palette: dark ink/paper (`--bg`/`--ink` in `css/tokens.css` — as of
+  2026-09, `--bg` is a dark warm charcoal and `--ink` is a near-white, an
+  inversion of the system's original light paper/ink; same hue family, roles
+  swapped), plus two accents — `--reading` (a measured value, or a primary
+  action) and `--verified` (shipped / in good standing), both brightened
+  from their original light-mode hex values to clear 4.5:1 against the dark
+  surface. No gradient glow, no drop shadows. Flat, ruled,
+  printed-document-flat. One visual mode, no toggle.
 - Type: Source Serif 4 (`--font-serif`) for headings and body prose, Martian
   Mono (`--font-mono`) for labels, data, and measured values. Two families,
   used for two distinct jobs — never mixed within one string.
@@ -103,7 +107,7 @@ to a cold email. It only works if every claim on it is true and checkable.
   now. Diagram markup is data-driven and gated by project status; the file
   comes back into use the moment a shipped project's diagram entrance
   animation is needed again — don't delete it in the meantime.
-- One visual mode — paper/ink, no dark mode, no toggle.
+- One visual mode — dark ink/paper, no toggle.
 
 ## Common Workflows
 Adding a project, a log entry, or flipping something to shipped: see

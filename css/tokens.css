@@ -1,35 +1,37 @@
 /* ==========================================================================
-   TOKENS — "Test Report"
+   TOKENS — "Test Report" (dark)
 
    The site reads like the datasheet stapled to a piece of benchmarked
    hardware: paper, ink, one measured-value color, one verified/status color.
-   No near-black-and-lime, no gradient glow, no soft rounded card kit — flat,
-   ruled, and printed-document-flat. See AGENTS.md → Design freeze.
+   No gradient glow, no soft rounded card kit — flat, ruled, and
+   printed-document-flat. Originally a light paper/ink system; inverted to
+   dark ink/paper here (same hue family, roles swapped — --ink below is the
+   old --bg value). One visual mode, no toggle. See AGENTS.md → Design freeze.
    ========================================================================== */
 :root {
-  /* surfaces: paper → recessed panel → table-head */
-  --bg: #E7E4DC;
-  --bg-1: #DEDAD0;
-  --bg-2: #D3CEC2;
+  /* surfaces: dark paper → recessed panel → table-head */
+  --bg: #1C1A16;
+  --bg-1: #242220;
+  --bg-2: #2C2A26;
 
   /* ink */
-  --ink: #1B1B18;
-  --ink-2: #4A473E;
-  --ink-3: #585448;
+  --ink: #EDEAE2;
+  --ink-2: #B8B3A6;
+  --ink-3: #9E9A8B;
 
   /* structure — hairline rules, not shadows */
-  --line: #C9C4B6;
-  --line-2: #B8B2A2;
+  --line: #38352F;
+  --line-2: #4A4640;
 
   /* accents — reading = a measured value / primary action
               verified = shipped, confirmed, in-good-standing
-     Both darkened from the concept swatch (was #A6531C / #4B6B4F) to clear
-     4.5:1 against --bg at the small sizes they're actually used at — see
-     the contrast note in AGENTS.md → Design freeze. */
-  --reading: #8C4517;
-  --reading-dim: #6E3712;
-  --verified: #436049;
-  --verified-dim: #2F4536;
+     Brightened for the dark surface to clear 4.5:1 against --bg at the
+     small sizes they're actually used at — see the contrast note in
+     AGENTS.md → Design freeze. */
+  --reading: #DD8A5C;
+  --reading-dim: #E79A70;
+  --verified: #8FB396;
+  --verified-dim: #A0C1A6;
 
   --font-mono: 'Martian Mono', ui-monospace, 'SF Mono', Consolas, monospace;
   --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;

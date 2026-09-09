@@ -1,6 +1,6 @@
 # aqifahmed.com — portfolio
 
-A portfolio styled like a hardware test report — paper, ink, spec tables, one
+A portfolio styled like a hardware test report — dark paper, light ink, spec tables, one
 measured-value accent. Plain HTML / CSS / JS — no build step, no framework, no
 npm install. That's deliberate: GitHub Pages serves it as-is, and there's
 nothing to break.
@@ -20,8 +20,8 @@ nothing to break.
   shouldn't need to touch this to change content.
 - `js/diagrams.js` — preserved but currently unused (not called from
   `js/main.js`) — see AGENTS.md.
-- `css/tokens.css` — design tokens: the paper/ink palette, two accents, two
-  typefaces, spacing scale. One visual mode, no toggle.
+- `css/tokens.css` — design tokens: the dark ink/paper palette, two accents,
+  two typefaces, spacing scale. One visual mode, no toggle.
 - `css/base.css` — reset and base typography.
 - `css/app.css` — component and section styles.
 - `assets/` — résumé PDF and OG image.
@@ -29,12 +29,12 @@ nothing to break.
 ## Design — "Test Report"
 
 The site presents as the datasheet stapled to a piece of benchmarked
-hardware: paper and ink, a persistent left rail of report fields (Subject,
-Status, Section, Reading), and projects rendered as spec tables rather than
-cards. Deliberately not a hacker-terminal portfolio — see AGENTS.md → Design
-freeze for the full reasoning.
+hardware: dark paper and light ink, a persistent left rail of report fields
+(Subject, Status, Section, Reading), and projects rendered as spec tables
+rather than cards. Deliberately not a hacker-terminal portfolio — see
+AGENTS.md → Design freeze for the full reasoning.
 
-- Palette: `--bg`/`--ink` (paper/ink) plus two accents — `--reading` (a
+- Palette: `--bg`/`--ink` (dark ink/paper) plus two accents — `--reading` (a
   measured value or primary action) and `--verified` (shipped / in good
   standing). No gradients, no drop shadows, minimal border-radius.
 - Type: Source Serif 4 for headings and body prose, Martian Mono for labels,
